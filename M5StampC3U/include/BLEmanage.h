@@ -12,8 +12,14 @@
 extern QueueHandle_t queueBLEWrite;
 extern QueueHandle_t queueBLERead;
 
+extern BLEDevice central;
+
 void BLESetup();
 void BLE_callback();
+
+void taskBLEWrite(void *pvParameters);
 void taskBLERead(void *pvParameters);
+
+bool sendDataBLE(BLEDevice& central, const char* serviceUuid, const char* characteristicUuid, const char* dataToSend);
 
 #endif // BLEMANAGE_H

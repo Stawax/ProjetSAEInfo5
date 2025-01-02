@@ -20,9 +20,17 @@
     #include "BLEManage.h" // Inclure uniquement en mode debug
 #endif
 
+#define BOUTON  GPIO_NUM_9
+
 enum ActionOrder { EXISTING = 1 ,ADD = 2 , INFO = 3 };
 
 enum ActionInformation {NO_INFO , VALID, DENIED};
 extern ActionInformation information;
+
+String generateRandomUID();
+String generateRandomRoomName();
+int generateRandomDeviceType();
+
+BLEDevice scanForDevice(const char* targetName);
 
 #endif // PROJECT_H
