@@ -1,55 +1,42 @@
+/**
+ * \addtogroup M5_Stamp
+ * \{
+ * \addtogroup M5_Stamp_Bluetooth
+ * \{
+ * 
+ * @file    BLEmanage.cpp
+ * @brief   Programme de gestion de la communication Bluetooth.
+ * 
+ * \}
+ * \}
+*/
+
+/****************************** Includes *********************************/
+
+/** \brief Header de gestion du Bluetooth */
 #include "BLEManage.h"
 
+/************************** Global Variables *****************************/
+
+/** \brief File d'écriture en Bluetooth */
 QueueHandle_t queueBLEWrite;
+/** \brief File de lecture en Bluetooth */
 QueueHandle_t queueBLERead;
 
+/** \brief Initialisation du service de l'appareil Bluetooth */
 BLEService M5StackService(SERVICE_UUID);
+/** \brief Initialisation des caractéristiques de l'appareil Bluetooth */
 BLEStringCharacteristic M5StackCharacteristic(CHARACTERISTIC_UUID, BLERead | BLEWrite, TRAME_SIZE);
 
-void BLESetup() {
-    if (!BLE.begin()) {
-        Serial.println("BLE initialization failed!");
-        while (1);
-    }
-
-    BLE.setDeviceName("MStamp_BLE_Device");  // Nom de votre périphérique
-    BLE.setLocalName("M5Stack");              // Nom local BLE
-    BLE.setAdvertisedService(M5StackService);
-
-    M5StackService.addCharacteristic(M5StackCharacteristic);
-
-    BLE.addService(M5StackService);
-
-    queueBLERead = xQueueCreate(10, TRAME_SIZE);
-    xTaskCreatePinnedToCore(taskBLERead, "BLE_Read", 8192, nullptr, 2, nullptr, 1);
-    
-    queueBLEWrite = xQueueCreate(10, TRAME_SIZE);
-    xTaskCreatePinnedToCore(taskBLEWrite, "BLE_Write", 8192, nullptr, 2, nullptr, 1);
-}
-
-/**
- * @brief Callback BLE pour traiter les données reçues via la caractéristique BLE.
- * 
- * Vérifie si la caractéristique BLE a été écrite, extrait les données reçues
- * et les insère dans la queue pour un traitement ultérieur.
- */
-void BLE_callback() {
-    if (M5StackCharacteristic.written()) {
-        char receivedData[TRAME_SIZE];
-        strncpy(receivedData, M5StackCharacteristic.value().c_str(), TRAME_SIZE - 1);
-        receivedData[TRAME_SIZE - 1] = '\0';
-
-        xQueueSendToBack(queueBLERead, (void *)&receivedData, portMAX_DELAY);
-    }
-}
+/*************************** Task Definition *****************************/
 
 /**
  * @brief Tâche FreeRTOS pour lire les données reçues via BLE.
- * 
- * Récupère les données de la queue "queueBLERead", les traite en appelant `parseDATA`,
- * et affiche le résultat. Ajoute un délai pour éviter une surcharge.
+ * \brief Récupère les données de la queue "queueBLERead", les traite en appelant `parseDATA`,
+ *        et affiche le résultat. Ajoute un délai pour éviter une surcharge.
  * 
  * @param pvParameters Paramètres de la tâche (non utilisés ici).
+ * \return None
  */
 void taskBLERead(void *pvParameters) {
     char receivedData[TRAME_SIZE];
@@ -73,12 +60,12 @@ void taskBLERead(void *pvParameters) {
 
 /**
  * @brief Tâche FreeRTOS pour envoyer des données via BLE.
- * 
- * Récupère les données de la queue "queueBLEWrite", vérifie si une connexion BLE
- * est active, et tente d'envoyer les données via la fonction `sendDataBLE`.
- * Ajoute un délai pour éviter une surcharge.
+ * \brief Récupère les données de la queue "queueBLEWrite", vérifie si une connexion BLE
+ *        est active, et tente d'envoyer les données via la fonction `sendDataBLE`.
+ * \brief Ajoute un délai pour éviter une surcharge.
  * 
  * @param pvParameters Paramètres de la tâche (non utilisés ici).
+ * \return None
  */
 void taskBLEWrite(void *pvParameters) {
     char dataToSend[TRAME_SIZE];
@@ -100,6 +87,59 @@ void taskBLEWrite(void *pvParameters) {
 
         // Ajouter un délai pour éviter une surcharge
         vTaskDelay(50 / portTICK_PERIOD_MS);
+    }
+}
+
+/************************* Function Definition ***************************/
+
+/**
+ * @brief Callback BLE pour traiter les données reçues via la caractéristique BLE.
+ * 
+ * \brief Vérifie si la caractéristique BLE a été écrite, extrait les données reçues
+ *        et les insère dans la queue pour un traitement ultérieur.
+ * 
+ * \param None
+ * \return None
+ */
+void BLESetup() {
+
+    if (!BLE.begin()) {
+        Serial.println("BLE initialization failed!");
+        while (1);
+    }
+
+    /* Nom de votre périphérique */
+    BLE.setDeviceName("MStamp_BLE_Device");
+    /* Nom local BLE */
+    BLE.setLocalName("M5Stack");
+    BLE.setAdvertisedService(M5StackService);
+
+    M5StackService.addCharacteristic(M5StackCharacteristic);
+
+    BLE.addService(M5StackService);
+
+    queueBLERead = xQueueCreate(10, TRAME_SIZE);
+    xTaskCreatePinnedToCore(taskBLERead, "BLE_Read", 8192, nullptr, 2, nullptr, 1);
+    
+    queueBLEWrite = xQueueCreate(10, TRAME_SIZE);
+    xTaskCreatePinnedToCore(taskBLEWrite, "BLE_Write", 8192, nullptr, 2, nullptr, 1);
+}
+
+/**
+ * @brief Callback BLE pour traiter les données reçues via la caractéristique BLE.
+ * \brief Vérifie si la caractéristique BLE a été écrite, extrait les données reçues
+ *        et les insère dans la queue pour un traitement ultérieur.
+ * 
+ * \param None
+ * \return None
+ */
+void BLE_callback() {
+    if (M5StackCharacteristic.written()) {
+        char receivedData[TRAME_SIZE];
+        strncpy(receivedData, M5StackCharacteristic.value().c_str(), TRAME_SIZE - 1);
+        receivedData[TRAME_SIZE - 1] = '\0';
+
+        xQueueSendToBack(queueBLERead, (void *)&receivedData, portMAX_DELAY);
     }
 }
 

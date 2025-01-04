@@ -1,9 +1,30 @@
+/** 
+ * \addtogroup M5_Stamp
+ * \{
+ * \addtogroup M5_Stamp_Appareils
+ * \{
+ * 
+ * @file    DeviceManager.cpp
+ * @brief   Programme de gestion des apareils Bluetooth.
+ * 
+ * \}
+ * \}
+*/
+
+/****************************** Includes *********************************/
+
+/** \brief Header général du projet */
 #include "project.h"
 
+/************************** Global Variables *****************************/
+
+/** \brief Information actuelle initialisée à NO_INFO */
 ActionInformation information = NO_INFO;
 
+/************************* Function Definition ***************************/
+
 /**
- * Analyse les données reçues pour extraire les informations des appareils.
+ * \brief Analyse les données reçues pour extraire les informations des appareils.
  *
  * @param data - Chaîne contenant les données.
  * @return true si l'analyse a réussi, false sinon.
@@ -67,7 +88,7 @@ bool parseDATA(const char *data) {
 }
 
 /**
- * Extrait une valeur d'un objet en fonction de la clé et du type.
+ * \brief Extrait une valeur d'un objet en fonction de la clé et du type.
  *
  * @param deviceData - Chaîne contenant les données.
  * @param key - Clé à rechercher dans les données.

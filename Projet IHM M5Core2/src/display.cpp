@@ -1,8 +1,27 @@
+/**
+ * \addtogroup M5_Core2
+ * \{
+ * \addtogroup M5_Core2_Affichage
+ * \{
+ * 
+ * @file    display.cpp
+ * @brief   Programme de gestion de l'affichage sur l'écran LCD.
+ * 
+ * \}
+ * \}
+*/
+
+/****************************** Includes *********************************/
+
+/** \brief Header de l'affichage LCD */
 #include "display.h"
 
+/************************** Global Variables *****************************/
+
+/** \brief Initialiser l'écran au menu principal */
 StateScreen screen = HOME_SCREEN;
 
-// Liste des types de capteurs
+/** \brief Liste des types de capteurs */
 const char* typeSensors[] = {
     "Infrarouge",
     "Temperature",
@@ -11,9 +30,13 @@ const char* typeSensors[] = {
     "Mouvement"
 };
 
+/*************************** Task Definition *****************************/
+
 /**
- * Tâche pour mettre à jour l'affichage en fonction de l'état actuel du M5Core.
+ * \brief Tâche pour mettre à jour l'affichage en fonction de l'état actuel du M5Core.
+ * 
  * @param pvParameters - Paramètres passés à la tâche (non utilisés ici).
+ * \return None
  */
 void taskUpdateDisplay(void *pvParameters) {
     // Initialisation de l'état actuel de l'écran et de l'action reçue
@@ -152,9 +175,14 @@ void taskUpdateDisplay(void *pvParameters) {
     }
 }
 
+/************************* Function Definition ***************************/
+
 /**
- * Affiche l'écran principal (HOME_SCREEN).
- * Initialise les boutons et leurs couleurs.
+ * \brief Affiche l'écran principal (HOME_SCREEN).
+ * \brief Initialise les boutons et leurs couleurs.
+ * 
+ * \param None
+ * \return None
  */
 void displayScreenHome() {
     M5.Lcd.fillScreen(TFT_BLACK);
@@ -164,10 +192,13 @@ void displayScreenHome() {
 }
 
 /**
- * Met à jour une partie de l'écran principal (HOME_SCREEN).
+ * \brief Met à jour une partie de l'écran principal (HOME_SCREEN).
+ * 
  * @param state - La partie de l'écran à mettre à jour (ADD_BUTTON, MENU_BUTTON, etc.).
  * @param textColor - Couleur du texte.
  * @param backColor - Couleur d'arrière-plan.
+ * 
+ * \return None
  */
 void refreshPartScreenHome(PartScreenHome state, uint16_t textColor, uint16_t backColor) {
     switch(state) {
@@ -181,8 +212,11 @@ void refreshPartScreenHome(PartScreenHome state, uint16_t textColor, uint16_t ba
 }
 
 /**
- * Affiche l'écran du menu (MENU_SCREEN).
- * Initialise les boutons de navigation et leurs couleurs.
+ * \brief Affiche l'écran du menu (MENU_SCREEN).
+ * \brief Initialise les boutons de navigation et leurs couleurs.
+ * 
+ * @param None
+ * @return None
  */
 void displayScreenMenu() {
     M5.Lcd.fillScreen(BACK_COLOR);
@@ -194,8 +228,11 @@ void displayScreenMenu() {
 }
 
 /**
- * Affiche l'écran d'ajout (ADD_SCREEN).
- * Initialise les boutons de navigation et leurs couleurs.
+ * \brief Affiche l'écran d'ajout (ADD_SCREEN).
+ * \brief Initialise les boutons de navigation et leurs couleurs.
+ * 
+ * \param None
+ * \return None
  */
 void displayScreenAdd() {
     M5.Lcd.fillScreen(BACK_COLOR);
@@ -207,10 +244,12 @@ void displayScreenAdd() {
 }
 
 /**
- * Met à jour une partie de l'écran (générique).
+ * \brief Met à jour une partie de l'écran (générique).
+ * 
  * @param state - La partie de l'écran à mettre à jour (BASE, RIGHT_ARROW, etc.).
  * @param textColor - Couleur du texte.
  * @param backColor - Couleur d'arrière-plan.
+ * \return None
  */
 void refreshPartScreen(PartScreen state, uint16_t textColor, uint16_t backColor) {
     switch(state) {
@@ -236,10 +275,12 @@ void refreshPartScreen(PartScreen state, uint16_t textColor, uint16_t backColor)
 }
 
 /**
- * Affiche les informations d'un appareil.
+ * \brief Affiche les informations d'un appareil.
+ * 
  * @param device - L'objet Device contenant les informations.
  * @param textColor - Couleur du texte.
  * @param backColor - Couleur d'arrière-plan.
+ * \return None
  */
 void displayDevice(const Device& device, uint16_t textColor, uint16_t backColor) {
     refreshPartScreen(CENTER, TEXT_COLOR, TFT_BLACK);
@@ -263,10 +304,12 @@ void displayDevice(const Device& device, uint16_t textColor, uint16_t backColor)
 }
 
 /**
- * Affiche le temps écoulé depuis un certain moment pour un appareil donné.
+ * \brief Affiche le temps écoulé depuis un certain moment pour un appareil donné.
+ * 
  * @param device - L'objet Device contenant le timestamp.
  * @param textColor - Couleur du texte affiché.
  * @param backColor - Couleur de l'arrière-plan.
+ * \return None
  */
 void displayTime(const Device& device, uint16_t textColor, uint16_t backColor) {
     M5.Lcd.fillRect(140, HEIGHT - 30, 50, 30, backColor);
@@ -284,7 +327,8 @@ void displayTime(const Device& device, uint16_t textColor, uint16_t backColor) {
 }
 
 /**
- * Affiche une icône à une position donnée.
+ * \brief Affiche une icône à une position donnée.
+ * 
  * @param bitmap - L'image bitmap de l'icône.
  * @param x - Position en X.
  * @param y - Position en Y.
@@ -292,6 +336,7 @@ void displayTime(const Device& device, uint16_t textColor, uint16_t backColor) {
  * @param h - Hauteur de l'icône.
  * @param frontColor - Couleur de premier plan.
  * @param backColor - Couleur d'arrière-plan.
+ * \return None
  */
 void displayIcon(const uint8_t *bitmap, int x, int y, int w, int h, uint16_t frontColor, uint16_t backColor) {
     uint16_t color;
@@ -304,7 +349,8 @@ void displayIcon(const uint8_t *bitmap, int x, int y, int w, int h, uint16_t fro
 }
 
 /**
- * Convertit un ID de type de capteur en une chaîne.
+ * \brief Convertit un ID de type de capteur en une chaîne.
+ * 
  * @param idType - L'ID numérique du type de capteur.
  * @return Le nom du type de capteur ou "Inconnu" si l'ID est invalide.
  */
@@ -324,6 +370,7 @@ std::string convertSensorType(int idType) {
  * @param poX - La position en pixels sur l'axe X où centrer le texte.
  * @param poY - La position en pixels sur l'axe Y où centrer le texte.
  * @param textColor - La couleur du texte (valeur RGB).
+ * \return None
  */
 void displayString(const char *string, int32_t poX, int32_t poY ,uint16_t textColor) {
     M5.Lcd.setTextColor(textColor);

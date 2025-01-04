@@ -1,6 +1,10 @@
-/*
-  @author Bartholin Matthieu, Marjorie Koehl, Lucas Lapoirière 
-  @date   02/01/2025
+/**
+ * \addtogroup M5_Stamp
+ * \{
+ * \addtogroup M5_Stamp_Main
+ * \{
+ * 
+ * \file main.cpp
   @brief  Ce code permet de faire la simulation d'ajout d'un M5 Stamp sur un M5 Core 2. Pour faire cela le Stamp
           vas d'abords chercher à trouvé le M5 Core avec le nom voulu, dans notre cas "M5Core2". Quand il est
           trouvé la LED du Stamp passe de Bleue à Blanc. 
@@ -19,33 +23,51 @@
           avec x qui est soit "valid" ou "denied". Selon la réception la led vas passer en vert ou en rouge pendant
           5 secondes. Suite à celà le M5 Stamp se déconnecte pour rélancer une nouvelle boucle (la LED passe en bleu).  
 
- * Maintenance:
-      Au niveaux de la maintenance du code, il y a plusieurs option qui permettent de traiter tout problème obtenue:
-      
-      - Notament le DEBUG_MODE qui permet d'activer ou de désactiver la communication Série qui permet le renvoie de toutes
-      les actions éffectué par le M5Stamp.
+          Maintenance:
+            Au niveaux de la maintenance du code, il y a plusieurs option qui permettent de traiter tout problème obtenue:
+            
+            - Notament le DEBUG_MODE qui permet d'activer ou de désactiver la communication Série qui permet le renvoie de toutes
+            les actions éffectué par le M5Stamp.
 
-      - Il y aussi le BLE_MODE qui permet d'activer ou désactiver la communication BLE et donc de choisir de tester
-      si un problème survient à cause de la communication BLE. 
+            - Il y aussi le BLE_MODE qui permet d'activer ou désactiver la communication BLE et donc de choisir de tester
+            si un problème survient à cause de la communication BLE. 
 
- * Environnement:
-      M5 Stamp C3U
-      
- * Librairie:
-      ArduinoBLE
-      M5StampC3LED
+          Environnement:
+              M5 Stamp C3U
+              
+          Librairie:
+              ArduinoBLE
+              M5StampC3LED
+
+ * @author Bartholin Matthieu, Marjorie Koehl, Lucas Lapoirière 
+ * @date   02/01/2025
+ * 
+ * \}
+ * \}
  */
 
+/****************************** Includes *********************************/
+
+/** \brief Header général du projet */
 #include "project.h"
+/** \brief Librairie du M5 Stamp C3 LED */
 #include <M5StampC3LED.h>
 
+/************************** Global Variables *****************************/
+
+/** \brief Initialisation de la LED du M5 Stamp */
 M5StampC3LED led = M5StampC3LED();
 
-// Liste des pièces de la maison
+/** \brief Liste des pièces de la maison */
 const String roomNames[] = {"Salon", "Cuisine", "Chambre", "Salle de bain", "Bureau", "Entree"};
+
+/** \brief Taille de la liste */
 const int numRooms = sizeof(roomNames) / sizeof(roomNames[0]);  // Taille de la liste
 
+/** \brief Appareil Bluetooth principal */
 BLEDevice central;
+
+/******************************** SETUP **********************************/
 
 void setup() {
     QueueHandle_t queueDevice = xQueueCreate(5, 30);
@@ -61,7 +83,10 @@ void setup() {
 #endif
 }
 
+/********************************* LOOP **********************************/
+
 void loop() {
+
 #if BLE_MODE
   SERIAL_PRINTLN("Recherche de périphérique M5Core2...");
 
@@ -134,7 +159,8 @@ void loop() {
 }
 
 /**
- * Recherche un périphérique BLE avec un nom cible spécifique.
+ * \brief Recherche un périphérique BLE avec un nom cible spécifique.
+ * 
  * @param targetName - Le nom du périphérique à rechercher.
  * @return BLEDevice - Le périphérique BLE correspondant au nom cible, s'il est trouvé.
  */
@@ -169,7 +195,9 @@ BLEDevice scanForDevice(const char* targetName) {
 }
 
 /**
- * Génère un identifiant UID aléatoire au format "XX:XX:XX:XX:XX:XX".
+ * \brief Génère un identifiant UID aléatoire au format "XX:XX:XX:XX:XX:XX".
+ * 
+ * \param None
  * @return String - L'UID généré.
  */
 String generateRandomUID() {
@@ -194,7 +222,9 @@ String generateRandomUID() {
 }
 
 /**
- * Génère un nom de pièce aléatoire en sélectionnant un élément dans une liste préexistante.
+ * \brief Génère un nom de pièce aléatoire en sélectionnant un élément dans une liste préexistante.
+ * 
+ * \param None
  * @return String - Le nom de pièce généré.
  */
 String generateRandomRoomName() {
@@ -203,7 +233,9 @@ String generateRandomRoomName() {
 }
 
 /**
- * Génère un type d'appareil aléatoire (idTypeDevice) compris entre 1 et 5.
+ * \brief Génère un type d'appareil aléatoire (idTypeDevice) compris entre 1 et 5.
+ * 
+ * \param None
  * @return int - Le type d'appareil généré.
  */
 int generateRandomDeviceType() {

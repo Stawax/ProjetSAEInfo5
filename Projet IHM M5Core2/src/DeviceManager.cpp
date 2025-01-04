@@ -1,25 +1,79 @@
+/**
+ * \addtogroup M5_Core2
+ * \{
+ * \addtogroup M5_Core2_Appareils
+ * \{
+ * 
+ * @file    DeviceManager.cpp
+ * @brief   Programme de gestion des apareils Bluetooth.
+ * 
+ * \}
+ * \}
+*/
+
+/****************************** Includes *********************************/
+
+/** \brief Header général du projet */
 #include "project.h"
 
-// Liste globale pour stocker les appareils existants
+/************************** Global Variables *****************************/
+
+/** \brief Liste globale pour stocker les appareils existants */
 std::vector<Device> devices = {};
 
-// Liste globale pour stocker les nouveaux appareils détectés
+/** \brief Liste globale pour stocker les nouveaux appareils détectés */
 std::vector<Device> new_devices = {};
 
-// Indice de l'appareil actuel dans la liste des appareils existants
+/** \brief Indice de l'appareil actuel dans la liste des appareils existants */
 int currentDeviceIndex = 0;
 
-// Indice de l'appareil actuel dans la liste des nouveaux appareils
+/** \brief Indice de l'appareil actuel dans la liste des nouveaux appareils */
 int currentNewDeviceIndex = 0;
 
-// Tampon global pour les données reçues
+/** \brief Tampon global pour les données reçues */
 String buffer = "";
 
-// File de queue pour la gestion des appareils
+/** \brief File de queue pour la gestion des appareils */
 QueueHandle_t queueDevice;
 
+/*************************** Task Definition *****************************/
+
 /**
- * Analyse les données reçues pour extraire les informations des appareils.
+ * \brief Tâche pour valider les appareils dans la liste des nouveaux appareils.
+ *
+ * @param parameter - Paramètre de la tâche (non utilisé).
+ * \return None
+ */
+void taskValidate(void* parameter) {
+    while (true) {
+        unsigned long currentTime = millis();
+
+        // Vérifie tous les appareils
+        for (int i = 0; i < new_devices.size(); i++) {
+            Device& device = new_devices[i];
+
+            // Si l'appareil a dépassé 60 secondes, il est supprimé
+            if (currentTime - device.timestamp >= 60000) {
+                new_devices.erase(new_devices.begin() + i);
+                i--; 
+                SERIAL_PRINTLN("Appareil supprimé après 60 secondes.");
+            }
+        }
+
+        if (new_devices.empty()) {
+            break;  // Quitte la tâche si tous les appareils ont été traités
+        }
+
+        vTaskDelay(100 / portTICK_PERIOD_MS);  // Attent avant de vérifier à nouveau
+    }
+
+    vTaskDelete(NULL);  // Supprime la tâche lorsque tout est terminé
+}
+
+/************************* Function Definition ***************************/
+
+/**
+ * \brief Analyse les données reçues pour extraire les informations des appareils.
  *
  * @param data - Chaîne contenant les données.
  * @return true si l'analyse a réussi, false sinon.
@@ -80,7 +134,7 @@ bool parseDATA(const char *data) {
 }
 
 /**
- * Analyse un objet pour extraire les informations d'un appareil.
+ * \brief Analyse un objet pour extraire les informations d'un appareil.
  *
  * @param deviceData - Chaîne contenant les données de l'appareil.
  * @param device - Référence à l'objet Device à remplir.
@@ -124,7 +178,7 @@ bool parseDevice(const char *deviceData, Device &device) {
 }
 
 /**
- * Extrait une valeur d'un objet en fonction de la clé et du type.
+ * \brief Extrait une valeur d'un objet en fonction de la clé et du type.
  *
  * @param deviceData - Chaîne contenant les données.
  * @param key - Clé à rechercher dans les données.
@@ -151,9 +205,10 @@ bool extractJsonValue(const char *deviceData, const char *key, const char *type,
 }
 
 /**
- * Gère les commandes d'ajout pour les nouveaux appareils.
+ * \brief Gère les commandes d'ajout pour les nouveaux appareils.
  *
  * @param extractData - Données de l'appareil.
+ * \return None
  */
 void handleAddCommand(const char * extractData) {
     Device device;
@@ -170,35 +225,4 @@ void handleAddCommand(const char * extractData) {
         SERIAL_PRINTLN("Démarage Tache Valide");
         xTaskCreate(taskValidate, "ValidateAllDevices", 2048, NULL, 1, NULL);
     }
-}
-
-/**
- * Tâche pour valider les appareils dans la liste des nouveaux appareils.
- *
- * @param parameter - Paramètre de la tâche (non utilisé).
- */
-void taskValidate(void* parameter) {
-    while (true) {
-        unsigned long currentTime = millis();
-
-        // Vérifie tous les appareils
-        for (int i = 0; i < new_devices.size(); i++) {
-            Device& device = new_devices[i];
-
-            // Si l'appareil a dépassé 60 secondes, il est supprimé
-            if (currentTime - device.timestamp >= 60000) {
-                new_devices.erase(new_devices.begin() + i);
-                i--; 
-                SERIAL_PRINTLN("Appareil supprimé après 60 secondes.");
-            }
-        }
-
-        if (new_devices.empty()) {
-            break;  // Quitte la tâche si tous les appareils ont été traités
-        }
-
-        vTaskDelay(100 / portTICK_PERIOD_MS);  // Attent avant de vérifier à nouveau
-    }
-
-    vTaskDelete(NULL);  // Supprime la tâche lorsque tout est terminé
 }

@@ -1,22 +1,32 @@
+/**
+ * \addtogroup M5_Core2
+ * \{
+ * \addtogroup M5_Core2_Série
+ * \{
+ * 
+ * @file    serial.cpp
+ * @brief   Header de la communication série.
+ * 
+ * \}
+ * \}
+*/
+
+/****************************** Includes *********************************/
+
+/** \brief Header de la communication série */
 #include "Serial.h"
+/** \brief Librairie du M5 STack Core 2 */
 #include <M5Core2.h>
 
-/**
- * Initialisation du port série et création d'une tâche dédiée à la lecture série.
- */
-void SerialSetup() {
-    Serial.begin(115200);
-
-    // Création de la tâche de lecture série
-    xTaskCreatePinnedToCore(taskSerialRead, "Serial_Read", 8192, nullptr, 2, nullptr, 1);
-}
+/*************************** Task Definition *****************************/
 
 /**
- * Tâche pour la lecture de données via le port série.
- * Cette tâche lit les données reçues, les affiches, et tente de les analyser.
- * Elle permet aussi  de faire des tests et sur le M5 Core.
+ * \brief Tâche pour la lecture de données via le port série.
+ * \brief Cette tâche lit les données reçues, les affiches, et tente de les analyser.
+ * \brief Elle permet aussi  de faire des tests et sur le M5 Core.
  *
  * @param pvParameters - Paramètres de la tâche, non utilisé.
+ * \return None
  */
 void taskSerialRead(void *pvParameters) {
     char receivedData[1024];
@@ -44,4 +54,19 @@ void taskSerialRead(void *pvParameters) {
 
         vTaskDelay(100 / portTICK_PERIOD_MS); // Pause pour éviter une surcharge
     }
+}
+
+/************************* Function Definition ***************************/
+
+/**
+ * \brief Initialisation du port série et création d'une tâche dédiée à la lecture série.
+ * 
+ * \param None
+ * \return None
+ */
+void SerialSetup() {
+    Serial.begin(115200);
+
+    // Création de la tâche de lecture série
+    xTaskCreatePinnedToCore(taskSerialRead, "Serial_Read", 8192, nullptr, 2, nullptr, 1);
 }

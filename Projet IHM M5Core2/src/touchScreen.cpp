@@ -1,20 +1,41 @@
+/**
+ * \addtogroup M5_Core2
+ * \{
+ * \addtogroup M5_Core2_Affichage
+ * \{
+ * 
+ * @file    touchScreen.cpp
+ * @brief   Programme de gestion du tactile de l'écran LCD.
+ * 
+ * \}
+ * \}
+*/
+
+/****************************** Includes *********************************/
+
+/** \brief Header pour l'affichage LCD */
 #include "display.h"
 
-// Action pressée, initialisée à "aucune action"
+/************************** Global Variables *****************************/
+
+/** \brief Action pressée, initialisée à "aucune action" */
 ActionPress actionPress = NO_PRESS;
 
-// File de queue pour les actions à traiter, capacité de 5 actions
+/** \brief File de queue pour les actions à traiter, capacité de 5 actions */
 QueueHandle_t actionQueue = xQueueCreate(5, sizeof(ActionPress));
 
-// Mutex pour synchroniser les accès aux actions
+/** \brief Mutex pour synchroniser les accès aux actions */
 SemaphoreHandle_t actionMutex = xSemaphoreCreateMutex();
 
+/*************************** Task Definition *****************************/
+
 /**
- * Tâche pour gérer les pressions sur l'écran tactile.
- * Cette tâche vérifie si un point est pressé sur l'écran tactile, identifie la pression
- * et effectue les actions correspondantes en fonction de l'écran affiché.
+ * \brief Tâche pour gérer les pressions sur l'écran tactile.
+ * \brief Cette tâche vérifie si un point est pressé sur l'écran tactile, identifie la pression
+ *        et effectue les actions correspondantes en fonction de l'écran affiché.
  *
  * @param pvParameters - Paramètres de la tâche (non utilisés ici).
+ * \return None
  */
 void taskTouchPressed(void *pvParameters) {
     TouchPoint pointPress;
@@ -47,10 +68,13 @@ void taskTouchPressed(void *pvParameters) {
     }
 }
 
+/************************* Function Definition ***************************/
+
 /**
- * Gère les pressions sur l'écran tactile dans l'écran d'accueil (HOME_SCREEN).
+ * \brief Gère les pressions sur l'écran tactile dans l'écran d'accueil (HOME_SCREEN).
  *
  * @param point - Coordonnées du point pressé.
+ * \return None
  */
 void handleHomeScreenTouch(const TouchPoint& point) {
     if (point.x >= 30 && point.x <= 90 && point.y >= (HEIGHT - 90) && point.y <= (HEIGHT - 30)) {
@@ -63,9 +87,10 @@ void handleHomeScreenTouch(const TouchPoint& point) {
 }
 
 /**
- * Gère les pressions sur l'écran tactile dans l'écran d'ajout (ADD_SCREEN).
+ * \brief Gère les pressions sur l'écran tactile dans l'écran d'ajout (ADD_SCREEN).
  *
  * @param point - Coordonnées du point pressé.
+ * \return None
  */
 void handleAddScreenTouch(const TouchPoint& point) {
     ActionPress tempAction = ActionPress::NO_PRESS;
@@ -90,9 +115,10 @@ void handleAddScreenTouch(const TouchPoint& point) {
 }
 
 /**
- * Gère les pressions sur l'écran tactile dans l'écran du menu (MENU_SCREEN).
+ * \brief Gère les pressions sur l'écran tactile dans l'écran du menu (MENU_SCREEN).
  *
  * @param point - Coordonnées du point pressé.
+ * \return None
  */
 void handleMenuScreenTouch(const TouchPoint& point) {
     ActionPress tempAction = ActionPress::NO_PRESS;
@@ -113,10 +139,11 @@ void handleMenuScreenTouch(const TouchPoint& point) {
 }
 
 /**
- * Valide un appareil sélectionné en le déplaçant de la liste des nouveaux appareils
- * à la liste des appareils existants.
+ * \brief Valide un appareil sélectionné en le déplaçant de la liste des nouveaux appareils
+ *        à la liste des appareils existants.
  *
  * @param index - Index de l'appareil.
+ * \return None
  */
 void validateDevice(int index) {
     if (new_devices.empty()) { return; } 
@@ -137,9 +164,10 @@ void validateDevice(int index) {
 }
 
 /**
- * Refuse un appareil sélectionné.
+ * \brief Refuse un appareil sélectionné.
  *
  * @param index - Index de l'appareil.
+ * \return None
  */
 void deniedDevice(int index) {
     if (new_devices.empty()) { return; } 
