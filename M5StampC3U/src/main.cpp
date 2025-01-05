@@ -6,30 +6,30 @@
  * 
  * \file main.cpp
   @brief  Ce code permet de faire la simulation d'ajout d'un M5 Stamp sur un M5 Core 2. Pour faire cela le Stamp
-          vas d'abords chercher à trouvé le M5 Core avec le nom voulu, dans notre cas "M5Core2". Quand il est
+          va d'abord chercher à trouver le M5 Core avec le nom voulu, dans notre cas "M5Core2". Quand il est
           trouvé la LED du Stamp passe de Bleue à Blanc. 
           
-          Ensuite l'utilisateur peut appuyer sur le bouton du Stamp. La LED passe alors en violet et le Stamp
-          va chercher à se connecter au M5 Core pour lui envoyer une trame. La trame est généré aléatoirement 
-          permettant de faire des tests dans diverses situations. Par exemple cette trames :
+          Ensuite l'utilisateur peut appuyer sur le bouton du Stamp. La LED passe alors en rose et le Stamp
+          va chercher à se connecter au M5 Core pour lui envoyer une trame. La trame est générée aléatoirement 
+          permettant de faire des tests dans diverses situations. Par exemple cette trame :
 
           - "{\"action\":2,\"idDevice\":1,\"idTypeDevice\":1,\"uid\":\"AA:BB:CC:DD:EE:FF\",\"nom\":\"Chambre\"}" 
 
-          La trame à comme action la 2, donc l'ajout d'un appareil inconu. L'id du type l'appareil, mais aussi sont
+          La trame a comme action la 2, donc l'ajout d'un appareil inconu. L'id du type l'appareil, mais aussi sont
           UID qui est généré aléatoirement et pour finir le nom qui est pris dans une liste roomNames. 
 
-          Le Stamp vas ensuite attendre pendant 60 secondes que le M5 Core, lui renvoie une trame qui valide sont
-          ajout ou le refuse. La trame qui doit être réceptionné est de la forme {\"action\":3,\"info\":\"x\"}
-          avec x qui est soit "valid" ou "denied". Selon la réception la led vas passer en vert ou en rouge pendant
-          5 secondes. Suite à celà le M5 Stamp se déconnecte pour rélancer une nouvelle boucle (la LED passe en bleu).  
+          Le Stamp va ensuite attendre pendant 60 secondes que le M5 Core, lui renvoie une trame qui valide son
+          ajout ou le refuse. La trame qui doit être réceptionnée est de la forme {\"action\":3,\"info\":\"x\"}
+          avec x qui est soit "valid" ou "denied". Selon la réception la led va passer en vert ou en rouge pendant
+          5 secondes. Suite à cela le M5 Stamp se déconnecte pour rélancer une nouvelle boucle (la LED passe en bleu).  
 
           Maintenance:
-            Au niveaux de la maintenance du code, il y a plusieurs option qui permettent de traiter tout problème obtenue:
+            Au niveau de la maintenance du code, il y a plusieurs options qui permettent de traiter tout problème obtenue:
             
             - Notament le DEBUG_MODE qui permet d'activer ou de désactiver la communication Série qui permet le renvoie de toutes
-            les actions éffectué par le M5Stamp.
+            les actions éffectuées par le M5Stamp.
 
-            - Il y aussi le BLE_MODE qui permet d'activer ou désactiver la communication BLE et donc de choisir de tester
+            - Il y a aussi le BLE_MODE qui permet d'activer ou désactiver la communication BLE et donc de choisir de tester
             si un problème survient à cause de la communication BLE. 
 
           Environnement:
