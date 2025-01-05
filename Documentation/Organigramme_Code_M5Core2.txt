@@ -1,0 +1,132 @@
+flowchart TD
+    
+    %%Setup programme principal
+    SetupStart[Main Setup] --> InitM5(Initialisation M5Stack)
+    InitM5 --> CreationQueuesTaches(Création tâches lecture/écriture Bluetooth)
+    CreationQueuesTaches --> SetupStop[Stop]
+
+    %%Loop programme principal
+    LoopStart[Main Loop] --> ifLoop{Mode Bluetooth activé ?}
+        ifLoop --> |Oui| YesLoop(Afficher en série le client connecté)
+        YesLoop --> ifCheckConnected{Client toujours connecté ?}
+        ifCheckConnected --> |Oui| BLEcallback(Réception données Bluetooth)
+            BLEcallback --> ifCheckConnected
+            ifCheckConnected --> |Non| NoConnected(Afficher en série la déconnexion du client)
+            NoConnected --> LoopStart
+        ifLoop --> |Non| LoopStart
+
+    %%Tâche d'écriture Bluetooth
+    TacheBLEWriteStart[Tâche écriture BLE] --> ifReceptionWriteBLE{Données reçues dans la file d'écriture BLE ?}
+    ifReceptionWriteBLE --> |Oui| YesReceptionWriteBLE(Écrire en série les données à envoyer)
+        YesReceptionWriteBLE --> ifConnectedWriteBLE{Connexion Bluetooth active ?}
+            ifConnectedWriteBLE --> |Oui| YesConnectedWriteBLE(Envoi des données Bluetooth)
+                YesConnectedWriteBLE --> DelayWriteBLE(Attendre)
+                DelayWriteBLE --> TacheBLEWriteStart
+                ifConnectedWriteBLE --> |Non| NoConnectedWriteBLE(Afficher en série l'absence de connexion)
+                NoConnectedWriteBLE --> DelayWriteBLE
+        ifReceptionWriteBLE --> |Non| DelayWriteBLE
+    
+
+    %%Tâche de lecture Bluetooth
+    TacheBLEReadStart[Tâche lecture BLE] --> ifReceptionReadBLE{Données reçues dans la file de lecture BLE ?}
+    ifReceptionReadBLE --> |Oui| YesReceptionReadBLE(Écrire en série les données reçues)
+        YesReceptionReadBLE --> ifAnalyseReadBLE{Trame rçue correcte ?}
+            ifAnalyseReadBLE --> |Oui| YesAnalyseReadBLE(Réception des données Bluetooth)
+                YesAnalyseReadBLE --> SerieYesAnalyseReadBLE(Notifier en série la réception validée)
+                SerieYesAnalyseReadBLE --> DelayReadBLE(Attendre)
+                DelayReadBLE --> TacheBLEReadStart
+                ifAnalyseReadBLE --> |Non| NoAnalyseReadBLE(Afficher en série l'erreur de traitement)
+                NoAnalyseReadBLE --> DelayReadBLE
+        ifReceptionReadBLE --> |Non| DelayReadBLE
+
+    %%Tâche de validation
+    TacheValidStart[Tache Validate] --> ifCheckDevices{Tous les appareils sont vérifiés ?}
+        ifCheckDevices --> |Oui| DelayValid(Attendre)
+        ifCheckDevices --> |Non| ifTimeDevice{Appareil présent plus d'une minute}
+            ifTimeDevice --> |Oui| DeleteDevice(Supprimer l'appareil de la liste)
+            DeleteDevice --> SerieValid(Notifier la suppression de l'appareil sur le port série)
+            SerieValid --> ifCheckDevices
+            ifTimeDevice --> |Non| ifCheckDevices
+    DelayValid --> TacheValidStop(Suppression de la tâche)
+
+    %%Tâche d'actualisation de l'affichage
+    TacheUpdateStart[Tache UpdateDisplay] --> ifStateScreen{L'état de l'écran a-t-il changé ?}
+
+        ifStateScreen --> |Oui| switchScreen{État de l'écran ?}
+            switchScreen --> |Accueuil| HomeScreen(Afficher l'écran d'accueuil)
+                HomeScreen --> switchScreen2{Écran affiché ?}
+            switchScreen --> |Ajout| AddScreen(Afficher l'écran d'ajout)
+                AddScreen --> switchScreen2
+            switchScreen --> |Menu| MenuScreen(Afficher l'écran principal)
+                MenuScreen --> switchScreen2
+
+            switchScreen2 --> |Ajout| ifswitchAdd{Écran appuyé ?}
+
+                ifswitchAdd --> |Oui| YesswitchAdd{Bouton tactil pressé ?}
+                YesswitchAdd --> |Flèche gauche| LeftAdd(Faire défiler l'affichage vers la gauche)
+                    LeftAdd --> RefreshAdd(Mettre à jour l'affichage)
+                YesswitchAdd --> |Flèche droite| RightAdd(Faire défiler l'affichage vers la droite)
+                    RightAdd --> RefreshAdd
+                YesswitchAdd --> |Valider| ValidAdd(Valider la sélection de l'écran)
+                    ValidAdd --> RefreshAdd
+                YesswitchAdd --> |Annuler| DeniedAdd(Annuler la sélection)
+                    DeniedAdd --> RefreshAdd
+                RefreshAdd --> ifTimeUpdate{Temps écoulé = 60s ?}
+                ifswitchAdd --> |Non| DelayUpdate(Attendre)
+            
+            switchScreen2 --> |Menu| ifswitchMenu{Écran appuyé ?}
+                ifswitchMenu --> |Flèche gauche| LeftMenu(Faire défiler l'affichage vers la gauche)
+                    LeftMenu --> RefreshMenu(Mettre à jour l'affichage)
+                ifswitchMenu --> |Flèche droite| RightMenu(Faire défiler l'affichage vers la droite)
+                    RightMenu --> RefreshMenu
+                ifswitchMenu --> |Aucun| DelayUpdate
+                RefreshMenu --> ifTimeUpdate
+
+            ifTimeUpdate --> |Oui| UpdateScreen(Mettre à jour l'écran)
+            ifTimeUpdate --> |Non| DelayUpdate
+            UpdateScreen --> DelayUpdate
+            DelayUpdate --> TacheUpdateStart
+
+    %%Tâche de gestion des pression tactiles
+    TacheTactilStart[Tache TouchPressed] --> ifZonePressed{Il y a-t-il une pression sur l'écran ?}
+        ifZonePressed --> |Oui| switchZonepressed{Quel écran est présent ?}
+            switchZonepressed --> |Accueuil| switchHomeTactil{Bouton de l'écran pressée ?}
+                switchHomeTactil --> |Ajout| HomeSetAdd(Écran à l'état d'ajout)
+                HomeSetAdd --> DelayPressed(Attendre)
+                switchHomeTactil --> |Menu| HomeSetMenu(Écran à l'état de Menu)               
+                HomeSetMenu --> DelayPressed
+
+            switchZonepressed --> |Ajout| switchAddTactil{Bouton de l'écran pressée ?}
+                switchAddTactil --> |Accueuil| AddSetHome(Écran à l'état d'accueuil)
+                AddSetHome --> DelayPressed
+                switchAddTactil --> |Flèche gauche| AddSetLeft(Enregistrer l'action de navigation vers la gauche)
+                AddSetLeft --> DelayPressed
+                switchAddTactil --> |Flèche droite| AddSetRight(Enregistrer l'action de navigation vers la droite)
+                AddSetRight --> DelayPressed
+                switchAddTactil --> |Valider| AddSetValid(Enregistrer l'action de valider)
+                AddSetValid --> DelayPressed
+                switchAddTactil --> |Annuler| AddSetDenied(Enregistrer l'action d'annuler)
+                AddSetDenied --> DelayPressed
+
+            switchZonepressed --> |Menu| switchMenuTactil{Bouton de l'écran pressée ?}
+                switchMenuTactil --> |Accueuil| MenuSetHome(Écran à l'état d'acueuil) 
+                switchMenuTactil --> |Flèche gauche| MenuSetLeft(Enregistrer l'action de navigation vers la gauche)
+                MenuSetLeft --> DelayPressed
+                switchMenuTactil --> |Flèche droite| MenuSetRight(Enregistrer l'action de navigation vers la droite)
+                MenuSetRight --> DelayPressed
+
+        DelayPressed --> TacheTactilStart
+
+    %%Tâche de gestion de la liaison série
+    TacheSerieStart[Tache SerialRead] --> ifSerialPort{Port série disponible ?}
+        ifSerialPort --> |Oui| ReadTrame(Lecture des données série)
+        ReadTrame --> FormatTrame(Securisation des données)
+        FormatTrame --> AfficherSerie(Afficher les données reçues sur le port série)
+        AfficherSerie --> ifCheckSerie{Données correctes ?}
+            ifCheckSerie --> |Oui| AckSerie(Afficher en série la validité des données)
+            AckSerie --> DelaySerie(Attendre)
+            ifCheckSerie --> |Non| NackSerie(Afficher en série l'invalidité des données)
+            NackSerie --> DelaySerie
+
+        ifSerialPort --> |Non| DelaySerie
+        DelaySerie --> TacheSerieStart

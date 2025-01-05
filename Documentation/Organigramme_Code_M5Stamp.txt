@@ -1,0 +1,72 @@
+flowchart TD
+    
+    %%Setup programme principal
+    SetupStart[Main Setup] --> InitM5(Initialisation M5Stamp)
+    InitM5 --> InitLed(Allumer la LED en bleu)
+    InitLed --> ifDebugSetup{Mode Debug activé ?}
+        ifDebugSetup --> |Oui| InitSerial(Initialiser le port série)
+        InitSerial --> ifBLEMode{Mode Bluetooth activé ?}
+        ifDebugSetup --> |Non| ifBLEMode{Mode Bluetooth activé ?}
+
+        ifBLEMode --> |Oui| InitBLE(Initialiser le mode Bluetooth)
+        InitBLE --> SetupStop[Stop]
+        ifBLEMode --> |Non| SetupStop
+
+    %%Loop programme principal
+    LoopStart[Main Loop] --> ifLoop{Mode Bluetooth activé}
+        ifLoop --> |Oui| YesLoop(Afficher en série que la recherche de périquérique a commencée)
+        YesLoop --> ifCheckConnected{Périphérique trouvé ?}
+            ifCheckConnected --> |Oui| LEDWhite(Allumer la LED en blanc)
+            LEDWhite --> ifBouton{Bouton pressé ?}
+                ifBouton --> |Oui| ifConnectedPeriph{Périphérique connecté ?}
+                    ifConnectedPeriph --> |Oui| LEDViolet(Allumer la LED en violet)
+                        LEDViolet --> OkSerie(Notifier en série la connexion du périphérique)
+                        OkSerie --> PrepareData(Préparer les données à envoyer)
+                        PrepareData --> SendData(Envoyer les données en Bluetooth)
+                        SendData --> ifEndConnect{Connexion terminée OU 60s écoulées OU réception données Bluetooth ?}
+                            ifEndConnect --> |Oui| ReceiveData(Réception et traitement des données)
+                                ReceiveData --> DelayReceiveData(Attendre)
+                                DelayReceiveData --> ifEndConnect
+                            ifEndConnect --> |Non| ifInfoValid{Information Validée ?}
+                                ifInfoValid --> |Oui| YesInfoValid(Notifier en série que le périphérique est approuvé)
+                                YesInfoValid --> LEDGreen(Allumer la LED en vert)
+                                LEDGreen --> DelayConnect(Attendre)
+                                ifInfoValid --> |Non| NoInfoValid(Notifier en série que la connexion est refusée)
+                                NoInfoValid --> LEDRed(Allumer la LED en rouge)
+                                LEDRed --> DelayConnect(Attendre)
+                            DelayConnect --> Disconnect(Déconnexion du périphérique)
+                            Disconnect --> SerieDisconnect(Afficher en série un message de déconnexion)
+                            SerieDisconnect --> RebootLED(Remmettre la LED en bleu)
+                        ifConnectedPeriph --> |Non| FinalDelay
+
+                ifBouton --> |Non| SerieEchec(Envoyer en série un message d'échec de connexion)
+                SerieEchec --> RebootLED
+                RebootLED --> FinalDelay(Attendre)
+            ifCheckConnected --> |Non| FinalDelay
+        ifLoop --> |Non| LoopStart
+    FinalDelay --> LoopStart
+
+
+    %%Tâche d'écriture Bluetooth
+    TacheBLEWriteStart[Tâche écriture BLE] --> ifReceptionWriteBLE{Données reçues dans la file d'écriture BLE ?}
+    ifReceptionWriteBLE --> |Oui| YesReceptionWriteBLE(Écrire en série les données à envoyer)
+        YesReceptionWriteBLE --> ifConnectedWriteBLE{Connexion Bluetooth active ?}
+            ifConnectedWriteBLE --> |Oui| YesConnectedWriteBLE(Envoi des données Bluetooth)
+                YesConnectedWriteBLE --> DelayWriteBLE(Attendre)
+                DelayWriteBLE --> TacheBLEWriteStart
+                ifConnectedWriteBLE --> |Non| NoConnectedWriteBLE(Afficher en série l'absence de connexion)
+                NoConnectedWriteBLE --> DelayWriteBLE
+        ifReceptionWriteBLE --> |Non| DelayWriteBLE
+    
+
+    %%Tâche de lecture Bluetooth
+    TacheBLEReadStart[Tâche lecture BLE] --> ifReceptionReadBLE{Données reçues dans la file de lecture BLE ?}
+    ifReceptionReadBLE --> |Oui| YesReceptionReadBLE(Écrire en série les données reçues)
+        YesReceptionReadBLE --> ifAnalyseReadBLE{Trame rçue correcte ?}
+            ifAnalyseReadBLE --> |Oui| YesAnalyseReadBLE(Réception des données Bluetooth)
+                YesAnalyseReadBLE --> SerieYesAnalyseReadBLE(Notifier en série la réception validée)
+                SerieYesAnalyseReadBLE --> DelayReadBLE(Attendre)
+                DelayReadBLE --> TacheBLEReadStart
+                ifAnalyseReadBLE --> |Non| NoAnalyseReadBLE(Afficher en série l'erreur de traitement)
+                NoAnalyseReadBLE --> DelayReadBLE
+        ifReceptionReadBLE --> |Non| DelayReadBLE
