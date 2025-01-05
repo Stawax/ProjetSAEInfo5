@@ -6,9 +6,6 @@
  * 
  * @file    BLEmanage.h
  * @brief   Header de la communication Bluetooth.
- * 
- * \}
- * \}
 */
 
 #ifndef BLEMANAGE_H
@@ -16,9 +13,9 @@
 
 /****************************** Includes *********************************/
 
-/** \brief Librairie de Bluetooth Arduino */
+/* Librairie de Bluetooth Arduino */
 #include <ArduinoBLE.h>
-/** \brief Header général du projet */
+/* Header général du projet */
 #include "project.h"
 
 /***************************** Constants *********************************/
@@ -63,3 +60,8 @@ extern QueueHandle_t queueBLERead;
 extern BLEDevice central;
 
 #endif // BLEMANAGE_H
+
+/**
+ * \}
+ * \}
+ */

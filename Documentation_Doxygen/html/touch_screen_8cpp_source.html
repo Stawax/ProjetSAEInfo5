@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SAE5_IHM:  Fichier source de src/touchScreen.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SAE5_IHM
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_df4170500cda4c5e0554b004e6e99923.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">touchScreen.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="touch_screen_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/****************************** Includes *********************************/</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">/* Header pour l&#39;affichage LCD */</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="display_8h.html">display.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">/************************** Global Variables *****************************/</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="group___m5___core2___affichage.html#ga8874353ab6fcf97e297daf03c17038f9">   19</a></span><a class="code hl_enumeration" href="group___m5___core2___affichage.html#ga9b037587c28189440aeaf610017b028d">ActionPress</a> <a class="code hl_variable" href="group___m5___core2___affichage.html#ga8874353ab6fcf97e297daf03c17038f9">actionPress</a> = <a class="code hl_enumvalue" href="group___m5___core2___affichage.html#gga9b037587c28189440aeaf610017b028da71608602123523c67d925ed96891a04f">NO_PRESS</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="group___m5___core2___affichage.html#ga674d8041722eeae6a4baa5aba542573f">   22</a></span>QueueHandle_t <a class="code hl_variable" href="group___m5___core2___affichage.html#ga674d8041722eeae6a4baa5aba542573f">actionQueue</a> = xQueueCreate(5, <span class="keyword">sizeof</span>(<a class="code hl_enumeration" href="group___m5___core2___affichage.html#ga9b037587c28189440aeaf610017b028d">ActionPress</a>));</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="group___m5___core2___affichage.html#ga1672a300b2c14d3dbd4a03abbec0db54">   25</a></span>SemaphoreHandle_t <a class="code hl_variable" href="group___m5___core2___affichage.html#ga1672a300b2c14d3dbd4a03abbec0db54">actionMutex</a> = xSemaphoreCreateMutex();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">/*************************** Task Definition *****************************/</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span></div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="group___m5___core2___affichage.html#ga5e8d1dbf6c7e30068d6689861fc0a632">   37</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___m5___core2___affichage.html#ga5e8d1dbf6c7e30068d6689861fc0a632">taskTouchPressed</a>(<span class="keywordtype">void</span> *pvParameters) {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    TouchPoint pointPress;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">while</span> (1) {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="comment">// Vérification de l&#39;écran tactile</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordflow">if</span> (M5.Touch.ispressed()) {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="comment">// Récupération des coordonnées du point pressé</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            pointPress = M5.Touch.getPressPoint();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <span class="comment">// Gestion en fonction de l&#39;écran actuel</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="keywordflow">switch</span> (<a class="code hl_variable" href="group___m5___core2___affichage.html#gad5c26680a26ae4c0a0fc39ce18e44163">screen</a>) {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___m5___core2___affichage.html#ggacd4643209f78d01bac5d4037fad75ef2a14f9e5d36d50df8c03a22e409d7f0bec">HOME_SCREEN</a>:</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                    <a class="code hl_function" href="group___m5___core2___affichage.html#ga7ae63c7eb862379dac5ab9c06bfceaa0">handleHomeScreenTouch</a>(pointPress);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___m5___core2___affichage.html#ggacd4643209f78d01bac5d4037fad75ef2a31683d51aaf20cc17fa80ae7c9754063">ADD_SCREEN</a>:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                    <a class="code hl_function" href="group___m5___core2___affichage.html#ga3c2fac3309afbfe390b6e9609169dcf0">handleAddScreenTouch</a>(pointPress);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___m5___core2___affichage.html#ggacd4643209f78d01bac5d4037fad75ef2a7339ce0f17e3e199ae485834a305c098">MENU_SCREEN</a>:</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                    <a class="code hl_function" href="group___m5___core2___affichage.html#ga32173b4c95692446e0c9861d42b5ee02">handleMenuScreenTouch</a>(pointPress);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <span class="comment">// Délai pour éviter les rebonds</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            vTaskDelay(300 / portTICK_PERIOD_MS);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        vTaskDelay(50 / portTICK_PERIOD_MS);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}</div>
+</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">/************************* Function Definition ***************************/</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span></div>
+<div class="foldopen" id="foldopen00076" data-start="{" data-end="}">
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="group___m5___core2___affichage.html#ga7ae63c7eb862379dac5ab9c06bfceaa0">   76</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___m5___core2___affichage.html#ga7ae63c7eb862379dac5ab9c06bfceaa0">handleHomeScreenTouch</a>(<span class="keyword">const</span> TouchPoint&amp; point) {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordflow">if</span> (point.x &gt;= 30 &amp;&amp; point.x &lt;= 90 &amp;&amp; point.y &gt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#gaed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a> - 90) &amp;&amp; point.y &lt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#gaed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a> - 30)) {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="comment">// Changement vers l&#39;écran d&#39;ajout</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <a class="code hl_variable" href="group___m5___core2___affichage.html#gad5c26680a26ae4c0a0fc39ce18e44163">screen</a> = <a class="code hl_enumvalue" href="group___m5___core2___affichage.html#ggacd4643209f78d01bac5d4037fad75ef2a31683d51aaf20cc17fa80ae7c9754063">ADD_SCREEN</a>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (point.x &gt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#ga241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> - 90) &amp;&amp; point.x &lt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#ga241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> - 30) &amp;&amp; point.y &gt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#gaed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a> - 90) &amp;&amp; point.y &lt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#gaed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a> - 30)) {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="comment">// Changement vers le menu</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <a class="code hl_variable" href="group___m5___core2___affichage.html#gad5c26680a26ae4c0a0fc39ce18e44163">screen</a> = <a class="code hl_enumvalue" href="group___m5___core2___affichage.html#ggacd4643209f78d01bac5d4037fad75ef2a7339ce0f17e3e199ae485834a305c098">MENU_SCREEN</a>;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    }</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>}</div>
+</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span></div>
+<div class="foldopen" id="foldopen00092" data-start="{" data-end="}">
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="group___m5___core2___affichage.html#ga3c2fac3309afbfe390b6e9609169dcf0">   92</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___m5___core2___affichage.html#ga3c2fac3309afbfe390b6e9609169dcf0">handleAddScreenTouch</a>(<span class="keyword">const</span> TouchPoint&amp; point) {</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <a class="code hl_enumeration" href="group___m5___core2___affichage.html#ga9b037587c28189440aeaf610017b028d">ActionPress</a> tempAction = <a class="code hl_enumvalue" href="group___m5___core2___affichage.html#gga9b037587c28189440aeaf610017b028da71608602123523c67d925ed96891a04f">ActionPress::NO_PRESS</a>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordflow">if</span> (point.x &gt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#ga241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> - 238) &amp;&amp; point.x &lt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#ga241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> - 82) &amp;&amp; point.y &gt;= 0 &amp;&amp; point.y &lt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#gaed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a> - 180)) {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="comment">// Retour à l&#39;écran d&#39;accueil</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <a class="code hl_variable" href="group___m5___core2___affichage.html#gad5c26680a26ae4c0a0fc39ce18e44163">screen</a> = <a class="code hl_enumvalue" href="group___m5___core2___affichage.html#ggacd4643209f78d01bac5d4037fad75ef2a14f9e5d36d50df8c03a22e409d7f0bec">HOME_SCREEN</a>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!<a class="code hl_variable" href="group___m5___core2___appareils.html#gaeeed34f5de5863fceded5a2097879d7a">new_devices</a>.empty() &amp;&amp; point.x &gt;= 0 &amp;&amp; point.x &lt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#ga241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> - 238) &amp;&amp; point.y &gt;= 0 &amp;&amp; point.y &lt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#gaed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a> - 180)) {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        tempAction = <a class="code hl_enumvalue" href="group___m5___core2___affichage.html#gga9b037587c28189440aeaf610017b028da09776a649a0ed3ef3f8193f1ef4f8a09">ActionPress::LEFT_PRESS</a>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!<a class="code hl_variable" href="group___m5___core2___appareils.html#gaeeed34f5de5863fceded5a2097879d7a">new_devices</a>.empty() &amp;&amp; point.x &gt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#ga241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> - 78) &amp;&amp; point.x &lt;= <a class="code hl_define" href="group___m5___core2___affichage.html#ga241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> &amp;&amp; point.y &gt;= 0 &amp;&amp; point.y &lt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#gaed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a> - 180)) {</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        tempAction = <a class="code hl_enumvalue" href="group___m5___core2___affichage.html#gga9b037587c28189440aeaf610017b028da7be8edd7178e5922f57c5c71ebdb6401">ActionPress::RIGHT_PRESS</a>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!<a class="code hl_variable" href="group___m5___core2___appareils.html#gaeeed34f5de5863fceded5a2097879d7a">new_devices</a>.empty() &amp;&amp; point.x &gt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#ga241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> - 70) &amp;&amp; point.x &lt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#ga241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> - 30) &amp;&amp; point.y &gt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#gaed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a> - 50) &amp;&amp; point.y &lt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#gaed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a> - 10)) {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        tempAction = <a class="code hl_enumvalue" href="group___m5___core2___affichage.html#gga9b037587c28189440aeaf610017b028da296db0dc794524bbcf9fd0558e02945b">ActionPress::VALIDATE_PRESS</a>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!<a class="code hl_variable" href="group___m5___core2___appareils.html#gaeeed34f5de5863fceded5a2097879d7a">new_devices</a>.empty() &amp;&amp; point.x &gt;= 30 &amp;&amp; point.x &lt;= 70 &amp;&amp; point.y &gt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#gaed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a> - 50) &amp;&amp; point.y &lt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#gaed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a> - 10)) {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        tempAction = <a class="code hl_enumvalue" href="group___m5___core2___affichage.html#gga9b037587c28189440aeaf610017b028da8a49c681f219ed74128032d550e35ecc">ActionPress::DENIED_PRESS</a>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    }</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="comment">// Envoi de l&#39;action dans la file d&#39;attente</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordflow">if</span> (tempAction != <a class="code hl_enumvalue" href="group___m5___core2___affichage.html#gga9b037587c28189440aeaf610017b028da71608602123523c67d925ed96891a04f">ActionPress::NO_PRESS</a>) {</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        xQueueSend(<a class="code hl_variable" href="group___m5___core2___affichage.html#ga674d8041722eeae6a4baa5aba542573f">actionQueue</a>, &amp;tempAction, 0);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    }</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>}</div>
+</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span></div>
+<div class="foldopen" id="foldopen00120" data-start="{" data-end="}">
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="group___m5___core2___affichage.html#ga32173b4c95692446e0c9861d42b5ee02">  120</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___m5___core2___affichage.html#ga32173b4c95692446e0c9861d42b5ee02">handleMenuScreenTouch</a>(<span class="keyword">const</span> TouchPoint&amp; point) {</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <a class="code hl_enumeration" href="group___m5___core2___affichage.html#ga9b037587c28189440aeaf610017b028d">ActionPress</a> tempAction = <a class="code hl_enumvalue" href="group___m5___core2___affichage.html#gga9b037587c28189440aeaf610017b028da71608602123523c67d925ed96891a04f">ActionPress::NO_PRESS</a>;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordflow">if</span> (point.x &gt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#ga241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> - 238) &amp;&amp; point.x &lt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#ga241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> - 82) &amp;&amp; point.y &gt;= 0 &amp;&amp; point.y &lt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#gaed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a> - 180)) {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <span class="comment">// Retour à l&#39;écran d&#39;accueil</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <a class="code hl_variable" href="group___m5___core2___affichage.html#gad5c26680a26ae4c0a0fc39ce18e44163">screen</a> = <a class="code hl_enumvalue" href="group___m5___core2___affichage.html#ggacd4643209f78d01bac5d4037fad75ef2a14f9e5d36d50df8c03a22e409d7f0bec">HOME_SCREEN</a>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!<a class="code hl_variable" href="group___m5___core2___appareils.html#gaf5e284c943e2ce99202ce0f86c8b949e">devices</a>.empty() &amp;&amp; point.x &gt;= 0 &amp;&amp; point.x &lt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#ga241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> - 238) &amp;&amp; point.y &gt;= 0 &amp;&amp; point.y &lt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#gaed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a> - 180)) {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        tempAction = <a class="code hl_enumvalue" href="group___m5___core2___affichage.html#gga9b037587c28189440aeaf610017b028da09776a649a0ed3ef3f8193f1ef4f8a09">ActionPress::LEFT_PRESS</a>;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!<a class="code hl_variable" href="group___m5___core2___appareils.html#gaf5e284c943e2ce99202ce0f86c8b949e">devices</a>.empty() &amp;&amp; point.x &gt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#ga241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> - 78) &amp;&amp; point.x &lt;= <a class="code hl_define" href="group___m5___core2___affichage.html#ga241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> &amp;&amp; point.y &gt;= 0 &amp;&amp; point.y &lt;= (<a class="code hl_define" href="group___m5___core2___affichage.html#gaed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a> - 180)) {</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        tempAction = <a class="code hl_enumvalue" href="group___m5___core2___affichage.html#gga9b037587c28189440aeaf610017b028da7be8edd7178e5922f57c5c71ebdb6401">ActionPress::RIGHT_PRESS</a>;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    }</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="comment">// Envoi de l&#39;action dans la file d&#39;attente</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordflow">if</span> (tempAction != <a class="code hl_enumvalue" href="group___m5___core2___affichage.html#gga9b037587c28189440aeaf610017b028da71608602123523c67d925ed96891a04f">ActionPress::NO_PRESS</a>) {</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        xQueueSend(<a class="code hl_variable" href="group___m5___core2___affichage.html#ga674d8041722eeae6a4baa5aba542573f">actionQueue</a>, &amp;tempAction, 0);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    }</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>}</div>
+</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span></div>
+<div class="foldopen" id="foldopen00145" data-start="{" data-end="}">
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="group___m5___core2___affichage.html#gacc25533e01a5730cb4a4c7acd43db8c2">  145</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___m5___core2___affichage.html#gacc25533e01a5730cb4a4c7acd43db8c2">validateDevice</a>(<span class="keywordtype">int</span> index) {</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="group___m5___core2___appareils.html#gaeeed34f5de5863fceded5a2097879d7a">new_devices</a>.empty()) { <span class="keywordflow">return</span>; } </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <a class="code hl_variable" href="group___m5___core2___appareils.html#gaf5e284c943e2ce99202ce0f86c8b949e">devices</a>.push_back(<a class="code hl_variable" href="group___m5___core2___appareils.html#gaeeed34f5de5863fceded5a2097879d7a">new_devices</a>[index]);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="preprocessor">#if BLE_MODE</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="comment">// Construire un message de validation pour BLE</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keywordtype">char</span> message[<a class="code hl_define" href="group___m5___core2___bluetooth.html#ga80d3932c7f271549d4973a169a25ece8">TRAME_SIZE</a>];</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    snprintf(message, <a class="code hl_define" href="group___m5___core2___bluetooth.html#ga80d3932c7f271549d4973a169a25ece8">TRAME_SIZE</a>, <span class="stringliteral">&quot;{\&quot;action\&quot;:3,\&quot;info\&quot;:\&quot;valid\&quot;}&quot;</span>);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="comment">// Ajouter le message dans la file BLEWrite</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    xQueueSendToBack(<a class="code hl_variable" href="group___m5___core2___bluetooth.html#gaccf5bef39c54f82eb4a0f2bb2a9a1cc4">queueBLEWrite</a>, (<span class="keywordtype">void</span> *)message, portMAX_DELAY);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <a class="code hl_variable" href="group___m5___core2___appareils.html#gaeeed34f5de5863fceded5a2097879d7a">new_devices</a>.erase(<a class="code hl_variable" href="group___m5___core2___appareils.html#gaeeed34f5de5863fceded5a2097879d7a">new_devices</a>.begin() + index);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <a class="code hl_define" href="group___m5___core2___main.html#ga2b919c89c25c94264b663797b03a5e53">SERIAL_PRINTLN</a>(<span class="stringliteral">&quot;Appareil validé !&quot;</span>);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>}</div>
+</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span></div>
+<div class="foldopen" id="foldopen00169" data-start="{" data-end="}">
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="group___m5___core2___affichage.html#ga0a2146a17ce335fa7a7fe883d61d4b20">  169</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___m5___core2___affichage.html#ga0a2146a17ce335fa7a7fe883d61d4b20">deniedDevice</a>(<span class="keywordtype">int</span> index) {</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="group___m5___core2___appareils.html#gaeeed34f5de5863fceded5a2097879d7a">new_devices</a>.empty()) { <span class="keywordflow">return</span>; } </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="preprocessor">#if BLE_MODE</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="comment">// Construire un message de validation pour BLE</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keywordtype">char</span> message[<a class="code hl_define" href="group___m5___core2___bluetooth.html#ga80d3932c7f271549d4973a169a25ece8">TRAME_SIZE</a>];</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    snprintf(message, <a class="code hl_define" href="group___m5___core2___bluetooth.html#ga80d3932c7f271549d4973a169a25ece8">TRAME_SIZE</a>, <span class="stringliteral">&quot;{\&quot;action\&quot;:3,\&quot;info\&quot;:\&quot;denied\&quot;}&quot;</span>);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="comment">// Ajouter le message dans la file BLEWrite</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    xQueueSendToBack(<a class="code hl_variable" href="group___m5___core2___bluetooth.html#gaccf5bef39c54f82eb4a0f2bb2a9a1cc4">queueBLEWrite</a>, (<span class="keywordtype">void</span> *)message, portMAX_DELAY);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <a class="code hl_variable" href="group___m5___core2___appareils.html#gaeeed34f5de5863fceded5a2097879d7a">new_devices</a>.erase(<a class="code hl_variable" href="group___m5___core2___appareils.html#gaeeed34f5de5863fceded5a2097879d7a">new_devices</a>.begin() + index);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <a class="code hl_define" href="group___m5___core2___main.html#ga2b919c89c25c94264b663797b03a5e53">SERIAL_PRINTLN</a>(<span class="stringliteral">&quot;Appareil refusé !&quot;</span>);</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>}</div>
+</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span></div>
+<div class="ttc" id="adisplay_8h_html"><div class="ttname"><a href="display_8h.html">display.h</a></div><div class="ttdoc">Header de l&#39;affichage sur l&#39;écran LCD.</div></div>
+<div class="ttc" id="agroup___m5___core2___affichage_html_ga0a2146a17ce335fa7a7fe883d61d4b20"><div class="ttname"><a href="group___m5___core2___affichage.html#ga0a2146a17ce335fa7a7fe883d61d4b20">deniedDevice</a></div><div class="ttdeci">void deniedDevice(int index)</div><div class="ttdoc">Refuse un appareil sélectionné.</div><div class="ttdef"><b>Definition</b> <a href="#l00169">touchScreen.cpp:169</a></div></div>
+<div class="ttc" id="agroup___m5___core2___affichage_html_ga1672a300b2c14d3dbd4a03abbec0db54"><div class="ttname"><a href="group___m5___core2___affichage.html#ga1672a300b2c14d3dbd4a03abbec0db54">actionMutex</a></div><div class="ttdeci">SemaphoreHandle_t actionMutex</div><div class="ttdoc">Mutex pour synchroniser les accès aux actions.</div><div class="ttdef"><b>Definition</b> <a href="#l00025">touchScreen.cpp:25</a></div></div>
+<div class="ttc" id="agroup___m5___core2___affichage_html_ga241aeeb764887ae5e3de58b98f04b16d"><div class="ttname"><a href="group___m5___core2___affichage.html#ga241aeeb764887ae5e3de58b98f04b16d">WIDTH</a></div><div class="ttdeci">#define WIDTH</div><div class="ttdoc">Laargeur de l&#39;écran LCD.</div><div class="ttdef"><b>Definition</b> <a href="display_8h_source.html#l00037">display.h:37</a></div></div>
+<div class="ttc" id="agroup___m5___core2___affichage_html_ga32173b4c95692446e0c9861d42b5ee02"><div class="ttname"><a href="group___m5___core2___affichage.html#ga32173b4c95692446e0c9861d42b5ee02">handleMenuScreenTouch</a></div><div class="ttdeci">void handleMenuScreenTouch(const TouchPoint &amp;point)</div><div class="ttdoc">Gère les pressions sur l&#39;écran tactile dans l&#39;écran du menu (MENU_SCREEN).</div><div class="ttdef"><b>Definition</b> <a href="#l00120">touchScreen.cpp:120</a></div></div>
+<div class="ttc" id="agroup___m5___core2___affichage_html_ga3c2fac3309afbfe390b6e9609169dcf0"><div class="ttname"><a href="group___m5___core2___affichage.html#ga3c2fac3309afbfe390b6e9609169dcf0">handleAddScreenTouch</a></div><div class="ttdeci">void handleAddScreenTouch(const TouchPoint &amp;point)</div><div class="ttdoc">Gère les pressions sur l&#39;écran tactile dans l&#39;écran d&#39;ajout (ADD_SCREEN).</div><div class="ttdef"><b>Definition</b> <a href="#l00092">touchScreen.cpp:92</a></div></div>
+<div class="ttc" id="agroup___m5___core2___affichage_html_ga5e8d1dbf6c7e30068d6689861fc0a632"><div class="ttname"><a href="group___m5___core2___affichage.html#ga5e8d1dbf6c7e30068d6689861fc0a632">taskTouchPressed</a></div><div class="ttdeci">void taskTouchPressed(void *pvParameters)</div><div class="ttdoc">Tâche pour gérer les pressions sur l&#39;écran tactile.</div><div class="ttdef"><b>Definition</b> <a href="#l00037">touchScreen.cpp:37</a></div></div>
+<div class="ttc" id="agroup___m5___core2___affichage_html_ga674d8041722eeae6a4baa5aba542573f"><div class="ttname"><a href="group___m5___core2___affichage.html#ga674d8041722eeae6a4baa5aba542573f">actionQueue</a></div><div class="ttdeci">QueueHandle_t actionQueue</div><div class="ttdoc">File de queue pour les actions à traiter, capacité de 5 actions.</div><div class="ttdef"><b>Definition</b> <a href="#l00022">touchScreen.cpp:22</a></div></div>
+<div class="ttc" id="agroup___m5___core2___affichage_html_ga7ae63c7eb862379dac5ab9c06bfceaa0"><div class="ttname"><a href="group___m5___core2___affichage.html#ga7ae63c7eb862379dac5ab9c06bfceaa0">handleHomeScreenTouch</a></div><div class="ttdeci">void handleHomeScreenTouch(const TouchPoint &amp;point)</div><div class="ttdoc">Gère les pressions sur l&#39;écran tactile dans l&#39;écran d&#39;accueil (HOME_SCREEN).</div><div class="ttdef"><b>Definition</b> <a href="#l00076">touchScreen.cpp:76</a></div></div>
+<div class="ttc" id="agroup___m5___core2___affichage_html_ga8874353ab6fcf97e297daf03c17038f9"><div class="ttname"><a href="group___m5___core2___affichage.html#ga8874353ab6fcf97e297daf03c17038f9">actionPress</a></div><div class="ttdeci">ActionPress actionPress</div><div class="ttdoc">Action pressée, initialisée à &quot;aucune action&quot;.</div><div class="ttdef"><b>Definition</b> <a href="#l00019">touchScreen.cpp:19</a></div></div>
+<div class="ttc" id="agroup___m5___core2___affichage_html_ga9b037587c28189440aeaf610017b028d"><div class="ttname"><a href="group___m5___core2___affichage.html#ga9b037587c28189440aeaf610017b028d">ActionPress</a></div><div class="ttdeci">ActionPress</div><div class="ttdoc">Machine à état des pressions tactiles sur l&#39;écran.</div><div class="ttdef"><b>Definition</b> <a href="display_8h_source.html#l00067">display.h:67</a></div></div>
+<div class="ttc" id="agroup___m5___core2___affichage_html_gacc25533e01a5730cb4a4c7acd43db8c2"><div class="ttname"><a href="group___m5___core2___affichage.html#gacc25533e01a5730cb4a4c7acd43db8c2">validateDevice</a></div><div class="ttdeci">void validateDevice(int index)</div><div class="ttdoc">Valide un appareil sélectionné en le déplaçant de la liste des nouveaux appareils à la liste des appa...</div><div class="ttdef"><b>Definition</b> <a href="#l00145">touchScreen.cpp:145</a></div></div>
+<div class="ttc" id="agroup___m5___core2___affichage_html_gad5c26680a26ae4c0a0fc39ce18e44163"><div class="ttname"><a href="group___m5___core2___affichage.html#gad5c26680a26ae4c0a0fc39ce18e44163">screen</a></div><div class="ttdeci">StateScreen screen</div><div class="ttdoc">Initialiser l&#39;écran au menu principal.</div><div class="ttdef"><b>Definition</b> <a href="display_8cpp_source.html#l00019">display.cpp:19</a></div></div>
+<div class="ttc" id="agroup___m5___core2___affichage_html_gaed89bd71aee8be823e8a20ec4e093c1e"><div class="ttname"><a href="group___m5___core2___affichage.html#gaed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a></div><div class="ttdeci">#define HEIGHT</div><div class="ttdoc">Hauteur de l&#39;écran LCD.</div><div class="ttdef"><b>Definition</b> <a href="display_8h_source.html#l00039">display.h:39</a></div></div>
+<div class="ttc" id="agroup___m5___core2___affichage_html_gga9b037587c28189440aeaf610017b028da09776a649a0ed3ef3f8193f1ef4f8a09"><div class="ttname"><a href="group___m5___core2___affichage.html#gga9b037587c28189440aeaf610017b028da09776a649a0ed3ef3f8193f1ef4f8a09">LEFT_PRESS</a></div><div class="ttdeci">@ LEFT_PRESS</div><div class="ttdef"><b>Definition</b> <a href="display_8h_source.html#l00072">display.h:72</a></div></div>
+<div class="ttc" id="agroup___m5___core2___affichage_html_gga9b037587c28189440aeaf610017b028da296db0dc794524bbcf9fd0558e02945b"><div class="ttname"><a href="group___m5___core2___affichage.html#gga9b037587c28189440aeaf610017b028da296db0dc794524bbcf9fd0558e02945b">VALIDATE_PRESS</a></div><div class="ttdeci">@ VALIDATE_PRESS</div><div class="ttdef"><b>Definition</b> <a href="display_8h_source.html#l00069">display.h:69</a></div></div>
+<div class="ttc" id="agroup___m5___core2___affichage_html_gga9b037587c28189440aeaf610017b028da71608602123523c67d925ed96891a04f"><div class="ttname"><a href="group___m5___core2___affichage.html#gga9b037587c28189440aeaf610017b028da71608602123523c67d925ed96891a04f">NO_PRESS</a></div><div class="ttdeci">@ NO_PRESS</div><div class="ttdef"><b>Definition</b> <a href="display_8h_source.html#l00068">display.h:68</a></div></div>
+<div class="ttc" id="agroup___m5___core2___affichage_html_gga9b037587c28189440aeaf610017b028da7be8edd7178e5922f57c5c71ebdb6401"><div class="ttname"><a href="group___m5___core2___affichage.html#gga9b037587c28189440aeaf610017b028da7be8edd7178e5922f57c5c71ebdb6401">RIGHT_PRESS</a></div><div class="ttdeci">@ RIGHT_PRESS</div><div class="ttdef"><b>Definition</b> <a href="display_8h_source.html#l00071">display.h:71</a></div></div>
+<div class="ttc" id="agroup___m5___core2___affichage_html_gga9b037587c28189440aeaf610017b028da8a49c681f219ed74128032d550e35ecc"><div class="ttname"><a href="group___m5___core2___affichage.html#gga9b037587c28189440aeaf610017b028da8a49c681f219ed74128032d550e35ecc">DENIED_PRESS</a></div><div class="ttdeci">@ DENIED_PRESS</div><div class="ttdef"><b>Definition</b> <a href="display_8h_source.html#l00070">display.h:70</a></div></div>
+<div class="ttc" id="agroup___m5___core2___affichage_html_ggacd4643209f78d01bac5d4037fad75ef2a14f9e5d36d50df8c03a22e409d7f0bec"><div class="ttname"><a href="group___m5___core2___affichage.html#ggacd4643209f78d01bac5d4037fad75ef2a14f9e5d36d50df8c03a22e409d7f0bec">HOME_SCREEN</a></div><div class="ttdeci">@ HOME_SCREEN</div><div class="ttdef"><b>Definition</b> <a href="display_8h_source.html#l00064">display.h:64</a></div></div>
+<div class="ttc" id="agroup___m5___core2___affichage_html_ggacd4643209f78d01bac5d4037fad75ef2a31683d51aaf20cc17fa80ae7c9754063"><div class="ttname"><a href="group___m5___core2___affichage.html#ggacd4643209f78d01bac5d4037fad75ef2a31683d51aaf20cc17fa80ae7c9754063">ADD_SCREEN</a></div><div class="ttdeci">@ ADD_SCREEN</div><div class="ttdef"><b>Definition</b> <a href="display_8h_source.html#l00064">display.h:64</a></div></div>
+<div class="ttc" id="agroup___m5___core2___affichage_html_ggacd4643209f78d01bac5d4037fad75ef2a7339ce0f17e3e199ae485834a305c098"><div class="ttname"><a href="group___m5___core2___affichage.html#ggacd4643209f78d01bac5d4037fad75ef2a7339ce0f17e3e199ae485834a305c098">MENU_SCREEN</a></div><div class="ttdeci">@ MENU_SCREEN</div><div class="ttdef"><b>Definition</b> <a href="display_8h_source.html#l00064">display.h:64</a></div></div>
+<div class="ttc" id="agroup___m5___core2___appareils_html_gaeeed34f5de5863fceded5a2097879d7a"><div class="ttname"><a href="group___m5___core2___appareils.html#gaeeed34f5de5863fceded5a2097879d7a">new_devices</a></div><div class="ttdeci">std::vector&lt; Device &gt; new_devices</div><div class="ttdoc">Liste globale pour stocker les nouveaux appareils détectés.</div><div class="ttdef"><b>Definition</b> <a href="_m5___core2_2src_2_device_manager_8cpp_source.html#l00022">DeviceManager.cpp:22</a></div></div>
+<div class="ttc" id="agroup___m5___core2___appareils_html_gaf5e284c943e2ce99202ce0f86c8b949e"><div class="ttname"><a href="group___m5___core2___appareils.html#gaf5e284c943e2ce99202ce0f86c8b949e">devices</a></div><div class="ttdeci">std::vector&lt; Device &gt; devices</div><div class="ttdoc">Liste globale pour stocker les appareils existants.</div><div class="ttdef"><b>Definition</b> <a href="_m5___core2_2src_2_device_manager_8cpp_source.html#l00019">DeviceManager.cpp:19</a></div></div>
+<div class="ttc" id="agroup___m5___core2___bluetooth_html_ga80d3932c7f271549d4973a169a25ece8"><div class="ttname"><a href="group___m5___core2___bluetooth.html#ga80d3932c7f271549d4973a169a25ece8">TRAME_SIZE</a></div><div class="ttdeci">#define TRAME_SIZE</div><div class="ttdoc">Taille d&#39;une trame de données.</div><div class="ttdef"><b>Definition</b> <a href="_m5___core2_2include_2_b_l_e_manage_8h_source.html#l00026">BLEManage.h:26</a></div></div>
+<div class="ttc" id="agroup___m5___core2___bluetooth_html_gaccf5bef39c54f82eb4a0f2bb2a9a1cc4"><div class="ttname"><a href="group___m5___core2___bluetooth.html#gaccf5bef39c54f82eb4a0f2bb2a9a1cc4">queueBLEWrite</a></div><div class="ttdeci">QueueHandle_t queueBLEWrite</div><div class="ttdoc">File d&#39;écriture en Bluetooth.</div><div class="ttdef"><b>Definition</b> <a href="_m5___core2_2src_2_b_l_emanage_8cpp_source.html#l00021">BLEmanage.cpp:21</a></div></div>
+<div class="ttc" id="agroup___m5___core2___main_html_ga2b919c89c25c94264b663797b03a5e53"><div class="ttname"><a href="group___m5___core2___main.html#ga2b919c89c25c94264b663797b03a5e53">SERIAL_PRINTLN</a></div><div class="ttdeci">#define SERIAL_PRINTLN(x)</div><div class="ttdef"><b>Definition</b> <a href="_m5___core2_2include_2project_8h_source.html#l00038">project.h:38</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

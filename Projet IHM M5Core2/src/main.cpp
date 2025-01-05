@@ -74,14 +74,11 @@
  * 
  *  @author Bartholin Matthieu, Marjorie Koehl, Lucas Lapoirière 
  *  @date   02/01/2025
- * 
- * \}
- * \}
  */
 
 /****************************** Includes *********************************/
 
-/** \brief Header général du projet */
+/* Header général du projet */
 #include "project.h"
 
 /******************************** SETUP **********************************/
@@ -122,3 +119,8 @@ void loop() {
     }
 #endif
 }
+
+/**
+ * \}
+ * \}
+ */

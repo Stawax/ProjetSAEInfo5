@@ -6,16 +6,13 @@
  * 
  * @file    BLEmanage.cpp
  * @brief   Programme de gestion de la communication Bluetooth.
- * 
- * \}
- * \}
 */
 
 /****************************** Includes *********************************/
 
-/** \brief Header de gestion du Bluetooth */
+/* Header de gestion du Bluetooth */
 #include "BLEManage.h"
-/** \brief Librairie du M5 STack Core 2 */
+/* Librairie du M5 STack Core 2 */
 #include <M5Core2.h>
 
 /************************** Global Variables *****************************/
@@ -186,3 +183,8 @@ bool sendDataBLE(BLEDevice& central, const char* serviceUuid, const char* charac
     }
     return false; // Échec
 }
+
+/**
+ * \}
+ * \}
+ */

@@ -6,9 +6,6 @@
  * 
  * @file    project.h
  * @brief   Header général du projet IHM.
- * 
- * \}
- * \}
 */
 
 #ifndef PROJECT_H
@@ -16,11 +13,11 @@
 
 /****************************** Includes *********************************/
 
-/** \brief Librairie d'appareils Bluetooth */
+/* Librairie d'appareils Bluetooth */
 #include "device.h"
-/** \brief Header de l'affichage LCD */
+/* Header de l'affichage LCD */
 #include "display.h"
-/** \brief Librairie du M5 STack Core 2 */
+/* Librairie du M5 STack Core 2 */
 #include <M5Core2.h>
 
 /***************************** Constants *********************************/
@@ -49,3 +46,8 @@
 #endif
 
 #endif // PROJECT_H
+
+/**
+ * \}
+ * \}
+ */

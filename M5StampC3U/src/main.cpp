@@ -41,16 +41,13 @@
 
  * @author Bartholin Matthieu, Marjorie Koehl, Lucas Lapoirière 
  * @date   02/01/2025
- * 
- * \}
- * \}
  */
 
 /****************************** Includes *********************************/
 
-/** \brief Header général du projet */
+/* Header général du projet */
 #include "project.h"
-/** \brief Librairie du M5 Stamp C3 LED */
+/* Librairie du M5 Stamp C3 LED */
 #include <M5StampC3LED.h>
 
 /************************** Global Variables *****************************/
@@ -241,3 +238,8 @@ String generateRandomRoomName() {
 int generateRandomDeviceType() {
     return random(1, 6);  // Génère un nombre entre 1 et 5
 }
+
+/**
+ * \}
+ * \}
+ */

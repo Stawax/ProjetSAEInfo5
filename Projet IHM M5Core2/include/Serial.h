@@ -6,9 +6,6 @@
  * 
  * @file    Serial.h
  * @brief   Header des icons à afficher sur l'écran LCD.
- * 
- * \}
- * \}
 */
 
 #ifndef SERIAL_H
@@ -16,9 +13,9 @@
 
 /****************************** Includes *********************************/
 
-/** \brief Librairie d'appareils Bluetooth */
+/* Librairie d'appareils Bluetooth */
 #include "device.h"
-/** \brief Header général du projet */
+/* Header général du projet */
 #include "project.h"
 
 /***************************** Constants *********************************/
@@ -37,3 +34,8 @@ void taskSerialRead(void *pvParameters);
 void SerialSetup();
 
 #endif // SERIAL_H
+
+/**
+ * \}
+ * \}
+ */

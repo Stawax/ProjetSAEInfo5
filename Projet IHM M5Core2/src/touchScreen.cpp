@@ -6,14 +6,11 @@
  * 
  * @file    touchScreen.cpp
  * @brief   Programme de gestion du tactile de l'écran LCD.
- * 
- * \}
- * \}
 */
 
 /****************************** Includes *********************************/
 
-/** \brief Header pour l'affichage LCD */
+/* Header pour l'affichage LCD */
 #include "display.h"
 
 /************************** Global Variables *****************************/
@@ -184,3 +181,8 @@ void deniedDevice(int index) {
     new_devices.erase(new_devices.begin() + index);
     SERIAL_PRINTLN("Appareil refusé !");
 }
+
+/**
+ * \}
+ * \}
+ */

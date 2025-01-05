@@ -6,14 +6,11 @@
  * 
  * @file    BLEmanage.cpp
  * @brief   Programme de gestion de la communication Bluetooth.
- * 
- * \}
- * \}
 */
 
 /****************************** Includes *********************************/
 
-/** \brief Header de gestion du Bluetooth */
+/* Header de gestion du Bluetooth */
 #include "BLEManage.h"
 
 /************************** Global Variables *****************************/
@@ -177,3 +174,8 @@ bool sendDataBLE(BLEDevice& central, const char* serviceUuid, const char* charac
     }
     return false; // Échec
 }
+
+/**
+ * \}
+ * \}
+ */

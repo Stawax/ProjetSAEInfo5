@@ -6,16 +6,13 @@
  * 
  * @file    serial.cpp
  * @brief   Header de la communication série.
- * 
- * \}
- * \}
 */
 
 /****************************** Includes *********************************/
 
-/** \brief Header de la communication série */
+/* Header de la communication série */
 #include "Serial.h"
-/** \brief Librairie du M5 STack Core 2 */
+/* Librairie du M5 STack Core 2 */
 #include <M5Core2.h>
 
 /*************************** Task Definition *****************************/
@@ -70,3 +67,8 @@ void SerialSetup() {
     // Création de la tâche de lecture série
     xTaskCreatePinnedToCore(taskSerialRead, "Serial_Read", 8192, nullptr, 2, nullptr, 1);
 }
+
+/**
+ * \}
+ * \}
+ */

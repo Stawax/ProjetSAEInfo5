@@ -6,14 +6,11 @@
  * 
  * @file    DeviceManager.cpp
  * @brief   Programme de gestion des apareils Bluetooth.
- * 
- * \}
- * \}
 */
 
 /****************************** Includes *********************************/
 
-/** \brief Header général du projet */
+/* Header général du projet */
 #include "project.h"
 
 /************************** Global Variables *****************************/
@@ -226,3 +223,8 @@ void handleAddCommand(const char * extractData) {
         xTaskCreate(taskValidate, "ValidateAllDevices", 2048, NULL, 1, NULL);
     }
 }
+
+/**
+ * \}
+ * \}
+ */

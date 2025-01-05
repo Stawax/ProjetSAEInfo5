@@ -6,9 +6,6 @@
  * 
  * @file    project.h
  * @brief   Header de gestion des apareils Bluetooth.
- * 
- * \}
- * \}
 */
 
 #ifndef PROJECT_H
@@ -16,7 +13,7 @@
 
 /****************************** Includes *********************************/
 
-/** \brief Librairie d'appareils Bluetooth */
+/* Librairie d'appareils Bluetooth */
 #include "device.h"
 
 /***************************** Constants *********************************/
@@ -69,3 +66,8 @@ int generateRandomDeviceType();
 BLEDevice scanForDevice(const char* targetName);
 
 #endif // PROJECT_H
+
+/**
+ * \}
+ * \}
+ */

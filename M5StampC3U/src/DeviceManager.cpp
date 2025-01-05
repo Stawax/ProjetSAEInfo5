@@ -6,14 +6,11 @@
  * 
  * @file    DeviceManager.cpp
  * @brief   Programme de gestion des apareils Bluetooth.
- * 
- * \}
- * \}
 */
 
 /****************************** Includes *********************************/
 
-/** \brief Header général du projet */
+/* Header général du projet */
 #include "project.h"
 
 /************************** Global Variables *****************************/
@@ -113,3 +110,8 @@ bool extractJsonValue(const char *deviceData, const char *key, const char *type,
 
     return true;  // Extraction réussie
 }
+
+/**
+ * \}
+ * \}
+ */

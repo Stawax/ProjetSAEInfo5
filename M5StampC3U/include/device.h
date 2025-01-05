@@ -6,9 +6,6 @@
  * 
  * @file    device.h
  * @brief   Header de gestion des apareils Bluetooth.
- * 
- * \}
- * \}
 */
 
 #ifndef DEVICE_H
@@ -23,3 +20,8 @@ bool parseDATA(const char *json);
 bool extractJsonValue(const char *deviceData, const char *key, const char *type, void *data);
 
 #endif // DEVICE_H
+
+/**
+ * \}
+ * \}
+ */

@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SAE5_IHM: Référence du fichier src/display.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SAE5_IHM
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_df4170500cda4c5e0554b004e6e99923.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier display.cpp<div class="ingroups"><a class="el" href="group___m5___core2.html">M5_Core2</a> &raquo; <a class="el" href="group___m5___core2___affichage.html">M5_Core2_Affichage</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Programme de gestion de l'affichage sur l'écran LCD.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="display_8h_source.html">display.h</a>&quot;</code><br />
+</div>
+<p><a href="display_8cpp_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ga18293ca20543cebaba280b120716d3b3" id="r_ga18293ca20543cebaba280b120716d3b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___m5___core2___affichage.html#ga18293ca20543cebaba280b120716d3b3">taskUpdateDisplay</a> (void *pvParameters)</td></tr>
+<tr class="memdesc:ga18293ca20543cebaba280b120716d3b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tâche pour mettre à jour l'affichage en fonction de l'état actuel du M5Core.  <br /></td></tr>
+<tr class="separator:ga18293ca20543cebaba280b120716d3b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f779f572d1896a729263d4984e398ea" id="r_ga8f779f572d1896a729263d4984e398ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___m5___core2___affichage.html#ga8f779f572d1896a729263d4984e398ea">displayScreenHome</a> ()</td></tr>
+<tr class="memdesc:ga8f779f572d1896a729263d4984e398ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche l'écran principal (HOME_SCREEN).  <br /></td></tr>
+<tr class="separator:ga8f779f572d1896a729263d4984e398ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9fd6fbe492a76e0622e17c9000aa0cfa" id="r_ga9fd6fbe492a76e0622e17c9000aa0cfa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___m5___core2___affichage.html#ga9fd6fbe492a76e0622e17c9000aa0cfa">refreshPartScreenHome</a> (<a class="el" href="group___m5___core2___affichage.html#ga32edfb646552247a4cb60a324a012b26">PartScreenHome</a> state, uint16_t textColor, uint16_t backColor)</td></tr>
+<tr class="memdesc:ga9fd6fbe492a76e0622e17c9000aa0cfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour une partie de l'écran principal (HOME_SCREEN).  <br /></td></tr>
+<tr class="separator:ga9fd6fbe492a76e0622e17c9000aa0cfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaadda6b53013b1c9b1bbdee07a8d8ef08" id="r_gaadda6b53013b1c9b1bbdee07a8d8ef08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___m5___core2___affichage.html#gaadda6b53013b1c9b1bbdee07a8d8ef08">displayScreenMenu</a> ()</td></tr>
+<tr class="memdesc:gaadda6b53013b1c9b1bbdee07a8d8ef08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche l'écran du menu (MENU_SCREEN).  <br /></td></tr>
+<tr class="separator:gaadda6b53013b1c9b1bbdee07a8d8ef08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6cd013b942ed826af0d0dc208a54b315" id="r_ga6cd013b942ed826af0d0dc208a54b315"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___m5___core2___affichage.html#ga6cd013b942ed826af0d0dc208a54b315">displayScreenAdd</a> ()</td></tr>
+<tr class="memdesc:ga6cd013b942ed826af0d0dc208a54b315"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche l'écran d'ajout (ADD_SCREEN).  <br /></td></tr>
+<tr class="separator:ga6cd013b942ed826af0d0dc208a54b315"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa46ad6a25cf45751d9bcdddba75c2395" id="r_gaa46ad6a25cf45751d9bcdddba75c2395"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___m5___core2___affichage.html#gaa46ad6a25cf45751d9bcdddba75c2395">refreshPartScreen</a> (<a class="el" href="group___m5___core2___affichage.html#ga33998a3773b31e427448c8f7fd9fbd5a">PartScreen</a> state, uint16_t textColor, uint16_t backColor)</td></tr>
+<tr class="memdesc:gaa46ad6a25cf45751d9bcdddba75c2395"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour une partie de l'écran (générique).  <br /></td></tr>
+<tr class="separator:gaa46ad6a25cf45751d9bcdddba75c2395"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac5fbcb95018fb244224f8798c8fa98d2" id="r_gac5fbcb95018fb244224f8798c8fa98d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___m5___core2___affichage.html#gac5fbcb95018fb244224f8798c8fa98d2">displayDevice</a> (const <a class="el" href="struct_device.html">Device</a> &amp;device, uint16_t textColor, uint16_t backColor)</td></tr>
+<tr class="memdesc:gac5fbcb95018fb244224f8798c8fa98d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche les informations d'un appareil.  <br /></td></tr>
+<tr class="separator:gac5fbcb95018fb244224f8798c8fa98d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga39bf3738bd8a5b0f076f636627c572f5" id="r_ga39bf3738bd8a5b0f076f636627c572f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___m5___core2___affichage.html#ga39bf3738bd8a5b0f076f636627c572f5">displayTime</a> (const <a class="el" href="struct_device.html">Device</a> &amp;device, uint16_t textColor, uint16_t backColor)</td></tr>
+<tr class="memdesc:ga39bf3738bd8a5b0f076f636627c572f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le temps écoulé depuis un certain moment pour un appareil donné.  <br /></td></tr>
+<tr class="separator:ga39bf3738bd8a5b0f076f636627c572f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabe1e48955032ff723a18841f6fcba707" id="r_gabe1e48955032ff723a18841f6fcba707"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___m5___core2___affichage.html#gabe1e48955032ff723a18841f6fcba707">displayIcon</a> (const uint8_t *bitmap, int x, int y, int w, int h, uint16_t frontColor, uint16_t backColor)</td></tr>
+<tr class="memdesc:gabe1e48955032ff723a18841f6fcba707"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche une icône à une position donnée.  <br /></td></tr>
+<tr class="separator:gabe1e48955032ff723a18841f6fcba707"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga775f1d0ecdb1d34a650dd48e7fcf115c" id="r_ga775f1d0ecdb1d34a650dd48e7fcf115c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___m5___core2___affichage.html#ga775f1d0ecdb1d34a650dd48e7fcf115c">convertSensorType</a> (int idType)</td></tr>
+<tr class="memdesc:ga775f1d0ecdb1d34a650dd48e7fcf115c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convertit un ID de type de capteur en une chaîne.  <br /></td></tr>
+<tr class="separator:ga775f1d0ecdb1d34a650dd48e7fcf115c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8a907c38de539f8835d30c89373b1e16" id="r_ga8a907c38de539f8835d30c89373b1e16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___m5___core2___affichage.html#ga8a907c38de539f8835d30c89373b1e16">displayString</a> (const char *string, int32_t poX, int32_t poY,uint16_t textColor)</td></tr>
+<tr class="memdesc:ga8a907c38de539f8835d30c89373b1e16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche une chaîne de caractères en gras à une position donnée sur l'écran.  <br /></td></tr>
+<tr class="separator:ga8a907c38de539f8835d30c89373b1e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:gad5c26680a26ae4c0a0fc39ce18e44163" id="r_gad5c26680a26ae4c0a0fc39ce18e44163"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___m5___core2___affichage.html#gacd4643209f78d01bac5d4037fad75ef2">StateScreen</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___m5___core2___affichage.html#gad5c26680a26ae4c0a0fc39ce18e44163">screen</a> = <a class="el" href="group___m5___core2___affichage.html#ggacd4643209f78d01bac5d4037fad75ef2a14f9e5d36d50df8c03a22e409d7f0bec">HOME_SCREEN</a></td></tr>
+<tr class="memdesc:gad5c26680a26ae4c0a0fc39ce18e44163"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialiser l'écran au menu principal.  <br /></td></tr>
+<tr class="separator:gad5c26680a26ae4c0a0fc39ce18e44163"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae51264c92f47115fd2ac8cc7dfd086d3" id="r_gae51264c92f47115fd2ac8cc7dfd086d3"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___m5___core2___affichage.html#gae51264c92f47115fd2ac8cc7dfd086d3">typeSensors</a> []</td></tr>
+<tr class="memdesc:gae51264c92f47115fd2ac8cc7dfd086d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liste des types de capteurs.  <br /></td></tr>
+<tr class="separator:gae51264c92f47115fd2ac8cc7dfd086d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Programme de gestion de l'affichage sur l'écran LCD. </p>
+
+<p class="definition">Définition dans le fichier <a class="el" href="display_8cpp_source.html">display.cpp</a>.</p>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

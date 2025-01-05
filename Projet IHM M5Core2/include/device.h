@@ -6,9 +6,6 @@
  * 
  * @file    device.h
  * @brief   Header de gestion des apareils Bluetooth.
- * 
- * \}
- * \}
 */
 
 #ifndef DEVICE_H
@@ -16,11 +13,11 @@
 
 /****************************** Includes *********************************/
 
-/** \brief Librairie du M5 Stack Core 2 */
+/* Librairie du M5 Stack Core 2 */
 #include <M5Core2.h>
-/** \brief Librairie du type String */
+/* Librairie du type String */
 #include <string>
-/** \brief Librairie de tableaux dynamique en taille */
+/* Librairie de tableaux dynamique en taille */
 #include <vector>
 
 /*************************** Type Definition *****************************/
@@ -90,3 +87,8 @@ bool extractJsonValue(const char *deviceData, const char *key, const char *type,
 void handleAddCommand(const char * extractData);
 
 #endif // DEVICE_H
+
+/**
+ * \}
+ * \}
+ */

@@ -6,9 +6,6 @@
  * 
  * @file    display.h
  * @brief   Header de l'affichage sur l'écran LCD.
- * 
- * \}
- * \}
 */
 
 #ifndef DISPLAY_H
@@ -17,11 +14,11 @@
 /****************************** Includes *********************************/
 
 #include "icons.h"
-/** \brief Librairie d'appareils Bluetooth */
+/* Librairie d'appareils Bluetooth */
 #include "device.h"
-/** \brief Header général du projet */
+/* Header général du projet */
 #include "project.h"
-/** \brief Librairie du M5 STack Core 2 */
+/* Librairie du M5 STack Core 2 */
 #include <M5Core2.h>
 
 /***************************** Constants *********************************/
@@ -135,3 +132,8 @@ void deniedDevice(int index);
 std::string convertSensorType(int idType);
 
 #endif // DISPLAY_H
+
+/**
+ * \}
+ * \}
+ */

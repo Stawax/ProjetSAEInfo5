@@ -11,16 +11,13 @@
  * @brief   https://www.online-utility.org/image/convert/to/XBM
  * @brief   The output must be pasted in a header file, renamed and adjusted to appear
  *          as as a const unsigned char array in PROGMEM (FLASH program memory).
- * 
- * \}
- * \}
 */
 
 /****************************** Includes *********************************/
 
-/** \brief PROGMEM support header */
+/* PROGMEM support header */
 #include <pgmspace.h>
-/** \brief Librairie des types d'entier */
+/* Librairie des types d'entier */
 #include <stdint.h>
 
 /***************************** Constants *********************************/
@@ -372,3 +369,8 @@ PROGMEM const uint8_t menu_button_bits[] = {
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,    
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,    
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,};
+
+/**
+ * \}
+ * \}
+ */

@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SAE5_IHM:  Fichier source de D:/Scolarite/IUT/BUT GEII/Semestre_5/INFO5/SAE5/Code_Final/M5_Stamp/src/BLEmanage.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SAE5_IHM
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_62d0ee649ccdb4c73473bbb90b970d01.html">M5_Stamp</a></li><li class="navelem"><a class="el" href="dir_8bd3a88ef3fe5668c1b5f0ba8e313261.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">BLEmanage.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_m5___stamp_2src_2_b_l_emanage_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/****************************** Includes *********************************/</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">/* Header de gestion du Bluetooth */</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;BLEManage.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">/************************** Global Variables *****************************/</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="group___m5___stamp___bluetooth.html#gaccf5bef39c54f82eb4a0f2bb2a9a1cc4">   19</a></span>QueueHandle_t <a class="code hl_variable" href="group___m5___core2___bluetooth.html#gaccf5bef39c54f82eb4a0f2bb2a9a1cc4">queueBLEWrite</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="group___m5___stamp___bluetooth.html#ga40730912c7f0d4a539cc510f2d568588">   21</a></span>QueueHandle_t <a class="code hl_variable" href="group___m5___core2___bluetooth.html#ga40730912c7f0d4a539cc510f2d568588">queueBLERead</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="group___m5___stamp___bluetooth.html#gaca7a900bbe3d6d467a12219ef6985fd2">   24</a></span>BLEService <a class="code hl_function" href="group___m5___stamp___bluetooth.html#gaca7a900bbe3d6d467a12219ef6985fd2">M5StackService</a>(<a class="code hl_define" href="group___m5___core2___bluetooth.html#ga445125ee8c34695376c85f10b38844d6">SERVICE_UUID</a>);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="group___m5___stamp___bluetooth.html#ga6001568463ac392654f6c64d719e8a4b">   26</a></span>BLEStringCharacteristic <a class="code hl_function" href="group___m5___stamp___bluetooth.html#ga6001568463ac392654f6c64d719e8a4b">M5StackCharacteristic</a>(<a class="code hl_define" href="group___m5___core2___bluetooth.html#ga94aefdd5f54049079364e832dc15b336">CHARACTERISTIC_UUID</a>, BLERead | BLEWrite, <a class="code hl_define" href="group___m5___core2___bluetooth.html#ga80d3932c7f271549d4973a169a25ece8">TRAME_SIZE</a>);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">/*************************** Task Definition *****************************/</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="group___m5___stamp___bluetooth.html#gad8b63def68e70d80ef6b8d7c708369e1">   38</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___m5___core2___bluetooth.html#gad8b63def68e70d80ef6b8d7c708369e1">taskBLERead</a>(<span class="keywordtype">void</span> *pvParameters) {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">char</span> receivedData[<a class="code hl_define" href="group___m5___core2___bluetooth.html#ga80d3932c7f271549d4973a169a25ece8">TRAME_SIZE</a>];</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">while</span> (1) {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">if</span> (xQueueReceive(<a class="code hl_variable" href="group___m5___core2___bluetooth.html#ga40730912c7f0d4a539cc510f2d568588">queueBLERead</a>, (<span class="keywordtype">void</span> *)&amp;receivedData, portMAX_DELAY)) {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <a class="code hl_define" href="group___m5___core2___main.html#ga768100756af6f88f895e5ac435eb0c9b">SERIAL_PRINT</a>(<span class="stringliteral">&quot;Received: &quot;</span>);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <a class="code hl_define" href="group___m5___core2___main.html#ga2b919c89c25c94264b663797b03a5e53">SERIAL_PRINTLN</a>(receivedData);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="group___m5___core2___appareils.html#gaa9d1524895c68aa8f0bf985cab592822">parseDATA</a>(receivedData)) {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                <a class="code hl_define" href="group___m5___core2___main.html#ga2b919c89c25c94264b663797b03a5e53">SERIAL_PRINTLN</a>(<span class="stringliteral">&quot;Les données sont analysés avec succès.&quot;</span>);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                <a class="code hl_define" href="group___m5___core2___main.html#ga2b919c89c25c94264b663797b03a5e53">SERIAL_PRINTLN</a>(<span class="stringliteral">&quot;Erreur dans le traitement des données.&quot;</span>);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                <a class="code hl_variable" href="group___m5___stamp___main.html#gaa2cf8aa69a9bc7300ea881b882993e6b">information</a> = <a class="code hl_enumvalue" href="group___m5___stamp___main.html#gga6274e5e416a64acc269d04383ae389f6a08f1ea1cb5cac34a4f4237e5259fcabb">ActionInformation::DENIED</a>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="comment">// Ajouter un délai pour éviter une surcharge</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        vTaskDelay(50 / portTICK_PERIOD_MS); </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
+</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span></div>
+<div class="foldopen" id="foldopen00067" data-start="{" data-end="}">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="group___m5___stamp___bluetooth.html#gacae52c20e368c1d4bdda16c899c7c27c">   67</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___m5___core2___bluetooth.html#gacae52c20e368c1d4bdda16c899c7c27c">taskBLEWrite</a>(<span class="keywordtype">void</span> *pvParameters) {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">char</span> dataToSend[<a class="code hl_define" href="group___m5___core2___bluetooth.html#ga80d3932c7f271549d4973a169a25ece8">TRAME_SIZE</a>];</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordflow">while</span> (1) {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="comment">// Attend de recevoir des données dans la queue &quot;queueBLEWrite&quot;</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">if</span> (xQueueReceive(<a class="code hl_variable" href="group___m5___core2___bluetooth.html#gaccf5bef39c54f82eb4a0f2bb2a9a1cc4">queueBLEWrite</a>, (<span class="keywordtype">void</span> *)&amp;dataToSend, portMAX_DELAY)) {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <a class="code hl_define" href="group___m5___core2___main.html#ga768100756af6f88f895e5ac435eb0c9b">SERIAL_PRINT</a>(<span class="stringliteral">&quot;Envoi BLE : &quot;</span>);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            <a class="code hl_define" href="group___m5___core2___main.html#ga2b919c89c25c94264b663797b03a5e53">SERIAL_PRINTLN</a>(dataToSend);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="comment">// Vérifier si une connexion BLE est active</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            <span class="keywordflow">if</span> (BLE.connected()) {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                <a class="code hl_function" href="group___m5___core2___bluetooth.html#ga8caee5fda6d3fbda58805a6ed3eae198">sendDataBLE</a>(<a class="code hl_variable" href="group___m5___core2___bluetooth.html#gaca2215cd7e1a452faa882328d911a992">central</a>, <a class="code hl_define" href="group___m5___core2___bluetooth.html#ga445125ee8c34695376c85f10b38844d6">SERVICE_UUID</a>, <a class="code hl_define" href="group___m5___core2___bluetooth.html#ga94aefdd5f54049079364e832dc15b336">CHARACTERISTIC_UUID</a>, dataToSend);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                <a class="code hl_define" href="group___m5___core2___main.html#ga2b919c89c25c94264b663797b03a5e53">SERIAL_PRINTLN</a>(<span class="stringliteral">&quot;Aucune connexion BLE active. Envoi annulé.&quot;</span>);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        }</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="comment">// Ajouter un délai pour éviter une surcharge</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        vTaskDelay(50 / portTICK_PERIOD_MS);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    }</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>}</div>
+</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">/************************* Function Definition ***************************/</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span></div>
+<div class="foldopen" id="foldopen00101" data-start="{" data-end="}">
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="group___m5___stamp___bluetooth.html#gaf0a193a41c8554c69e8609c1705cf6e6">  101</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___m5___core2___bluetooth.html#gaf0a193a41c8554c69e8609c1705cf6e6">BLESetup</a>() {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordflow">if</span> (!BLE.begin()) {</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        Serial.println(<span class="stringliteral">&quot;BLE initialization failed!&quot;</span>);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keywordflow">while</span> (1);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    }</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="comment">/* Nom de votre périphérique */</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    BLE.setDeviceName(<span class="stringliteral">&quot;MStamp_BLE_Device&quot;</span>);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="comment">/* Nom local BLE */</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    BLE.setLocalName(<span class="stringliteral">&quot;M5Stack&quot;</span>);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    BLE.setAdvertisedService(<a class="code hl_function" href="group___m5___stamp___bluetooth.html#gaca7a900bbe3d6d467a12219ef6985fd2">M5StackService</a>);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <a class="code hl_function" href="group___m5___stamp___bluetooth.html#gaca7a900bbe3d6d467a12219ef6985fd2">M5StackService</a>.addCharacteristic(<a class="code hl_function" href="group___m5___stamp___bluetooth.html#ga6001568463ac392654f6c64d719e8a4b">M5StackCharacteristic</a>);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    BLE.addService(<a class="code hl_function" href="group___m5___stamp___bluetooth.html#gaca7a900bbe3d6d467a12219ef6985fd2">M5StackService</a>);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <a class="code hl_variable" href="group___m5___core2___bluetooth.html#ga40730912c7f0d4a539cc510f2d568588">queueBLERead</a> = xQueueCreate(10, <a class="code hl_define" href="group___m5___core2___bluetooth.html#ga80d3932c7f271549d4973a169a25ece8">TRAME_SIZE</a>);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    xTaskCreatePinnedToCore(<a class="code hl_function" href="group___m5___core2___bluetooth.html#gad8b63def68e70d80ef6b8d7c708369e1">taskBLERead</a>, <span class="stringliteral">&quot;BLE_Read&quot;</span>, 8192, <span class="keyword">nullptr</span>, 2, <span class="keyword">nullptr</span>, 1);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <a class="code hl_variable" href="group___m5___core2___bluetooth.html#gaccf5bef39c54f82eb4a0f2bb2a9a1cc4">queueBLEWrite</a> = xQueueCreate(10, <a class="code hl_define" href="group___m5___core2___bluetooth.html#ga80d3932c7f271549d4973a169a25ece8">TRAME_SIZE</a>);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    xTaskCreatePinnedToCore(<a class="code hl_function" href="group___m5___core2___bluetooth.html#gacae52c20e368c1d4bdda16c899c7c27c">taskBLEWrite</a>, <span class="stringliteral">&quot;BLE_Write&quot;</span>, 8192, <span class="keyword">nullptr</span>, 2, <span class="keyword">nullptr</span>, 1);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>}</div>
+</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span></div>
+<div class="foldopen" id="foldopen00133" data-start="{" data-end="}">
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="group___m5___stamp___bluetooth.html#ga9e92cc5e8260630e10d63e290b7dae19">  133</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___m5___core2___bluetooth.html#ga9e92cc5e8260630e10d63e290b7dae19">BLE_callback</a>() {</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="group___m5___stamp___bluetooth.html#ga6001568463ac392654f6c64d719e8a4b">M5StackCharacteristic</a>.written()) {</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordtype">char</span> receivedData[<a class="code hl_define" href="group___m5___core2___bluetooth.html#ga80d3932c7f271549d4973a169a25ece8">TRAME_SIZE</a>];</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        strncpy(receivedData, <a class="code hl_function" href="group___m5___stamp___bluetooth.html#ga6001568463ac392654f6c64d719e8a4b">M5StackCharacteristic</a>.value().c_str(), <a class="code hl_define" href="group___m5___core2___bluetooth.html#ga80d3932c7f271549d4973a169a25ece8">TRAME_SIZE</a> - 1);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        receivedData[<a class="code hl_define" href="group___m5___core2___bluetooth.html#ga80d3932c7f271549d4973a169a25ece8">TRAME_SIZE</a> - 1] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        xQueueSendToBack(<a class="code hl_variable" href="group___m5___core2___bluetooth.html#ga40730912c7f0d4a539cc510f2d568588">queueBLERead</a>, (<span class="keywordtype">void</span> *)&amp;receivedData, portMAX_DELAY);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    }</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>}</div>
+</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span></div>
+<div class="foldopen" id="foldopen00154" data-start="{" data-end="}">
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="group___m5___stamp___bluetooth.html#ga8caee5fda6d3fbda58805a6ed3eae198">  154</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="group___m5___core2___bluetooth.html#ga8caee5fda6d3fbda58805a6ed3eae198">sendDataBLE</a>(BLEDevice&amp; <a class="code hl_variable" href="group___m5___core2___bluetooth.html#gaca2215cd7e1a452faa882328d911a992">central</a>, <span class="keyword">const</span> <span class="keywordtype">char</span>* serviceUuid, <span class="keyword">const</span> <span class="keywordtype">char</span>* characteristicUuid, <span class="keyword">const</span> <span class="keywordtype">char</span>* dataToSend) {</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="comment">// Découvrir le service BLE spécifié</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="group___m5___core2___bluetooth.html#gaca2215cd7e1a452faa882328d911a992">central</a>.discoverService(serviceUuid)) {</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        <a class="code hl_define" href="group___m5___core2___main.html#ga2b919c89c25c94264b663797b03a5e53">SERIAL_PRINTLN</a>(<span class="stringliteral">&quot;Service trouvé !&quot;</span>);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <span class="comment">// Trouver la caractéristique associée</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        BLECharacteristic characteristic = <a class="code hl_variable" href="group___m5___core2___bluetooth.html#gaca2215cd7e1a452faa882328d911a992">central</a>.characteristic(characteristicUuid);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordflow">if</span> (characteristic) {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            <span class="comment">// Tenter d&#39;envoyer les données</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            <span class="keywordflow">if</span> (characteristic.writeValue((uint8_t*)dataToSend, strlen(dataToSend))) {</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>                <a class="code hl_define" href="group___m5___core2___main.html#ga2b919c89c25c94264b663797b03a5e53">SERIAL_PRINTLN</a>(<span class="stringliteral">&quot;Données envoyées avec succès !&quot;</span>);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// Succès</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>                <a class="code hl_define" href="group___m5___core2___main.html#ga2b919c89c25c94264b663797b03a5e53">SERIAL_PRINTLN</a>(<span class="stringliteral">&quot;Échec de l&#39;envoi des données.&quot;</span>);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            }</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            <a class="code hl_define" href="group___m5___core2___main.html#ga2b919c89c25c94264b663797b03a5e53">SERIAL_PRINTLN</a>(<span class="stringliteral">&quot;Caractéristique non trouvée !&quot;</span>);</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        }</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <a class="code hl_define" href="group___m5___core2___main.html#ga2b919c89c25c94264b663797b03a5e53">SERIAL_PRINTLN</a>(<span class="stringliteral">&quot;Service non trouvé !&quot;</span>);</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    }</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Échec</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>}</div>
+</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span></div>
+<div class="ttc" id="agroup___m5___core2___appareils_html_gaa9d1524895c68aa8f0bf985cab592822"><div class="ttname"><a href="group___m5___core2___appareils.html#gaa9d1524895c68aa8f0bf985cab592822">parseDATA</a></div><div class="ttdeci">bool parseDATA(const char *json)</div><div class="ttdoc">Analyse les données reçues pour extraire les informations des appareils.</div><div class="ttdef"><b>Definition</b> <a href="_m5___core2_2src_2_device_manager_8cpp_source.html#l00078">DeviceManager.cpp:78</a></div></div>
+<div class="ttc" id="agroup___m5___core2___bluetooth_html_ga40730912c7f0d4a539cc510f2d568588"><div class="ttname"><a href="group___m5___core2___bluetooth.html#ga40730912c7f0d4a539cc510f2d568588">queueBLERead</a></div><div class="ttdeci">QueueHandle_t queueBLERead</div><div class="ttdoc">File de lecture en Bluetooth.</div><div class="ttdef"><b>Definition</b> <a href="_m5___core2_2src_2_b_l_emanage_8cpp_source.html#l00023">BLEmanage.cpp:23</a></div></div>
+<div class="ttc" id="agroup___m5___core2___bluetooth_html_ga445125ee8c34695376c85f10b38844d6"><div class="ttname"><a href="group___m5___core2___bluetooth.html#ga445125ee8c34695376c85f10b38844d6">SERVICE_UUID</a></div><div class="ttdeci">#define SERVICE_UUID</div><div class="ttdoc">Identifiant du service.</div><div class="ttdef"><b>Definition</b> <a href="_m5___core2_2include_2_b_l_e_manage_8h_source.html#l00029">BLEManage.h:29</a></div></div>
+<div class="ttc" id="agroup___m5___core2___bluetooth_html_ga80d3932c7f271549d4973a169a25ece8"><div class="ttname"><a href="group___m5___core2___bluetooth.html#ga80d3932c7f271549d4973a169a25ece8">TRAME_SIZE</a></div><div class="ttdeci">#define TRAME_SIZE</div><div class="ttdoc">Taille d&#39;une trame de données.</div><div class="ttdef"><b>Definition</b> <a href="_m5___core2_2include_2_b_l_e_manage_8h_source.html#l00026">BLEManage.h:26</a></div></div>
+<div class="ttc" id="agroup___m5___core2___bluetooth_html_ga8caee5fda6d3fbda58805a6ed3eae198"><div class="ttname"><a href="group___m5___core2___bluetooth.html#ga8caee5fda6d3fbda58805a6ed3eae198">sendDataBLE</a></div><div class="ttdeci">bool sendDataBLE(BLEDevice &amp;central, const char *serviceUuid, const char *characteristicUuid, const char *dataToSend)</div><div class="ttdoc">Fonction pour envoyer des données via une caractéristique BLE.</div><div class="ttdef"><b>Definition</b> <a href="_m5___core2_2src_2_b_l_emanage_8cpp_source.html#l00163">BLEmanage.cpp:163</a></div></div>
+<div class="ttc" id="agroup___m5___core2___bluetooth_html_ga94aefdd5f54049079364e832dc15b336"><div class="ttname"><a href="group___m5___core2___bluetooth.html#ga94aefdd5f54049079364e832dc15b336">CHARACTERISTIC_UUID</a></div><div class="ttdeci">#define CHARACTERISTIC_UUID</div><div class="ttdoc">Identifiant des caractéristiques.</div><div class="ttdef"><b>Definition</b> <a href="_m5___core2_2include_2_b_l_e_manage_8h_source.html#l00032">BLEManage.h:32</a></div></div>
+<div class="ttc" id="agroup___m5___core2___bluetooth_html_ga9e92cc5e8260630e10d63e290b7dae19"><div class="ttname"><a href="group___m5___core2___bluetooth.html#ga9e92cc5e8260630e10d63e290b7dae19">BLE_callback</a></div><div class="ttdeci">void BLE_callback()</div><div class="ttdoc">Callback BLE pour traiter les données reçues via la caractéristique BLE.</div><div class="ttdef"><b>Definition</b> <a href="_m5___core2_2src_2_b_l_emanage_8cpp_source.html#l00142">BLEmanage.cpp:142</a></div></div>
+<div class="ttc" id="agroup___m5___core2___bluetooth_html_gaca2215cd7e1a452faa882328d911a992"><div class="ttname"><a href="group___m5___core2___bluetooth.html#gaca2215cd7e1a452faa882328d911a992">central</a></div><div class="ttdeci">BLEDevice central</div><div class="ttdoc">Appareil Bluetooth principal.</div><div class="ttdef"><b>Definition</b> <a href="_m5___core2_2src_2_b_l_emanage_8cpp_source.html#l00026">BLEmanage.cpp:26</a></div></div>
+<div class="ttc" id="agroup___m5___core2___bluetooth_html_gacae52c20e368c1d4bdda16c899c7c27c"><div class="ttname"><a href="group___m5___core2___bluetooth.html#gacae52c20e368c1d4bdda16c899c7c27c">taskBLEWrite</a></div><div class="ttdeci">void taskBLEWrite(void *pvParameters)</div><div class="ttdoc">Tâche FreeRTOS pour envoyer des données via BLE.</div><div class="ttdef"><b>Definition</b> <a href="_m5___core2_2src_2_b_l_emanage_8cpp_source.html#l00074">BLEmanage.cpp:74</a></div></div>
+<div class="ttc" id="agroup___m5___core2___bluetooth_html_gaccf5bef39c54f82eb4a0f2bb2a9a1cc4"><div class="ttname"><a href="group___m5___core2___bluetooth.html#gaccf5bef39c54f82eb4a0f2bb2a9a1cc4">queueBLEWrite</a></div><div class="ttdeci">QueueHandle_t queueBLEWrite</div><div class="ttdoc">File d&#39;écriture en Bluetooth.</div><div class="ttdef"><b>Definition</b> <a href="_m5___core2_2src_2_b_l_emanage_8cpp_source.html#l00021">BLEmanage.cpp:21</a></div></div>
+<div class="ttc" id="agroup___m5___core2___bluetooth_html_gad8b63def68e70d80ef6b8d7c708369e1"><div class="ttname"><a href="group___m5___core2___bluetooth.html#gad8b63def68e70d80ef6b8d7c708369e1">taskBLERead</a></div><div class="ttdeci">void taskBLERead(void *pvParameters)</div><div class="ttdoc">Tâche FreeRTOS pour lire les données reçues via BLE.</div><div class="ttdef"><b>Definition</b> <a href="_m5___core2_2src_2_b_l_emanage_8cpp_source.html#l00044">BLEmanage.cpp:44</a></div></div>
+<div class="ttc" id="agroup___m5___core2___bluetooth_html_gaf0a193a41c8554c69e8609c1705cf6e6"><div class="ttname"><a href="group___m5___core2___bluetooth.html#gaf0a193a41c8554c69e8609c1705cf6e6">BLESetup</a></div><div class="ttdeci">void BLESetup()</div><div class="ttdoc">Initialise les services et caractéristiques BLE ainsi que les tâches de gestion BLE.</div><div class="ttdef"><b>Definition</b> <a href="_m5___core2_2src_2_b_l_emanage_8cpp_source.html#l00108">BLEmanage.cpp:108</a></div></div>
+<div class="ttc" id="agroup___m5___core2___main_html_ga2b919c89c25c94264b663797b03a5e53"><div class="ttname"><a href="group___m5___core2___main.html#ga2b919c89c25c94264b663797b03a5e53">SERIAL_PRINTLN</a></div><div class="ttdeci">#define SERIAL_PRINTLN(x)</div><div class="ttdef"><b>Definition</b> <a href="_m5___core2_2include_2project_8h_source.html#l00038">project.h:38</a></div></div>
+<div class="ttc" id="agroup___m5___core2___main_html_ga768100756af6f88f895e5ac435eb0c9b"><div class="ttname"><a href="group___m5___core2___main.html#ga768100756af6f88f895e5ac435eb0c9b">SERIAL_PRINT</a></div><div class="ttdeci">#define SERIAL_PRINT(x)</div><div class="ttdef"><b>Definition</b> <a href="_m5___core2_2include_2project_8h_source.html#l00037">project.h:37</a></div></div>
+<div class="ttc" id="agroup___m5___stamp___bluetooth_html_ga6001568463ac392654f6c64d719e8a4b"><div class="ttname"><a href="group___m5___stamp___bluetooth.html#ga6001568463ac392654f6c64d719e8a4b">M5StackCharacteristic</a></div><div class="ttdeci">BLEStringCharacteristic M5StackCharacteristic(CHARACTERISTIC_UUID, BLERead|BLEWrite, TRAME_SIZE)</div><div class="ttdoc">Initialisation des caractéristiques de l&#39;appareil Bluetooth.</div></div>
+<div class="ttc" id="agroup___m5___stamp___bluetooth_html_gaca7a900bbe3d6d467a12219ef6985fd2"><div class="ttname"><a href="group___m5___stamp___bluetooth.html#gaca7a900bbe3d6d467a12219ef6985fd2">M5StackService</a></div><div class="ttdeci">BLEService M5StackService(SERVICE_UUID)</div><div class="ttdoc">Initialisation du service de l&#39;appareil Bluetooth.</div></div>
+<div class="ttc" id="agroup___m5___stamp___main_html_gaa2cf8aa69a9bc7300ea881b882993e6b"><div class="ttname"><a href="group___m5___stamp___main.html#gaa2cf8aa69a9bc7300ea881b882993e6b">information</a></div><div class="ttdeci">ActionInformation information</div><div class="ttdoc">Information actuelle initialisée à NO_INFO.</div><div class="ttdef"><b>Definition</b> <a href="_m5___stamp_2src_2_device_manager_8cpp_source.html#l00019">DeviceManager.cpp:19</a></div></div>
+<div class="ttc" id="agroup___m5___stamp___main_html_gga6274e5e416a64acc269d04383ae389f6a08f1ea1cb5cac34a4f4237e5259fcabb"><div class="ttname"><a href="group___m5___stamp___main.html#gga6274e5e416a64acc269d04383ae389f6a08f1ea1cb5cac34a4f4237e5259fcabb">DENIED</a></div><div class="ttdeci">@ DENIED</div><div class="ttdef"><b>Definition</b> <a href="_m5___stamp_2include_2project_8h_source.html#l00049">project.h:49</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

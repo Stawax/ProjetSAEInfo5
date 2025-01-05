@@ -6,14 +6,11 @@
  * 
  * @file    display.cpp
  * @brief   Programme de gestion de l'affichage sur l'écran LCD.
- * 
- * \}
- * \}
 */
 
 /****************************** Includes *********************************/
 
-/** \brief Header de l'affichage LCD */
+/* Header de l'affichage LCD */
 #include "display.h"
 
 /************************** Global Variables *****************************/
@@ -380,3 +377,8 @@ void displayString(const char *string, int32_t poX, int32_t poY ,uint16_t textCo
     // Affiche le sting
     M5.Lcd.drawString(string, poX, poY);
 }
+
+/**
+ * \}
+ * \}
+ */
